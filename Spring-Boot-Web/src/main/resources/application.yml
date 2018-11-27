@@ -1,0 +1,108 @@
+# Server settings
+server:
+  port: 9999
+  address: localhost
+  #  servlet:
+  #    context-path: /News
+  tomcat:
+    access_log_enabled: true
+    max-connections: 800
+  error:
+    #    whitelabel:
+    #      enabled: false
+    path: /customError #default is /error
+  session-timeout: 60
+
+shiro:
+  loginUrl: /login
+  unauthorizedUrl: /unAuthorized #只有perms，roles，ssl，rest，port才是属于AuthorizationFilter，而anon，authcBasic，auchc，user是AuthenticationFilter，所以unauthorizedUrl设置后页面不跳转
+  sessionManager:
+    sessionIdCookieEnabled: true
+    sessionIdUrlRewritingEnabled: true
+    deleteInvalidSessions: true
+    cookie:
+      name: JSESSIONID
+      maxAge: -1
+      domain: null
+      path: null
+      secure: false
+  rememberMeManager:
+    cookie:
+      name: rememberMe
+      ## 默认一年
+      #maxAge: 60 * 60 * 24 * 365
+      domain: null
+      path: null
+      secure: false
+
+
+# SPRING PROFILES
+spring:
+  profiles:
+    active: DEV
+  # HTTP ENCODING
+  http:
+    encoding.charset: UTF-8
+    encoding.enable: true
+    encoding.force: true
+  mvc:
+    view:
+      suffix: .html
+## MyBatis
+mybatis:
+  typeAliasesPackage: com.rui.**.bean.**
+  configLocation: classpath:/mybatis-config.xml
+  mapperLocations: classpath:/mapper/*.xml
+
+---
+# SPRING PROFILES
+spring:
+  profiles: DEV
+  datasource:
+    master:
+      name: master
+      url: jdbc:oracle:thin:@hz4dw3224.corp.statestr.com:1521:O02DMHDEV
+      username: dmh
+      password: dmh
+      driver-class-name: oracle.jdbc.OracleDriver
+      type: com.alibaba.druid.pool.DruidDataSource
+    business:
+      name: business
+      url: jdbc:oracle:thin:@hz4dw3224.corp.statestr.com:1521:O02DMHDEV
+      username: dmh
+      password: dmh
+      driver-class-name: oracle.jdbc.OracleDriver
+      type: com.alibaba.druid.pool.DruidDataSource
+      #    url: jdbc:mysql://192.168.99.100:3306/rui?useUnicode=true&characterEncoding=utf-8
+      #    username: root
+      #    password: root
+      #    driver-class-name: com.mysql.cj.jdbc.Driver
+      #使用druid数据源  https://github.com/alibaba/druid/wiki/DruidDataSource%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7%E5%88%97%E8%A1%A8
+  druid:
+    filters: stat,wall,log4j
+    maxActive: 20
+    initialSize: 3
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000 #test interval
+    minEvictableIdleTimeMillis: 300000 #shortest life cycle
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  redis:
+    database: 0
+    host: 192.168.99.100
+    port: 32768
+    timeout: 3000
+    pool:
+      jedis:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1
+  #      sentinel:
+  #        master: master1
+  #        nodes: 192.168.99.100:32768

@@ -1,0 +1,22 @@
+{
+  "presets": [
+    ["@babel/env", {"modules": false}],//to fix regeneratorRuntime is not defined
+    "@babel/react"
+    // 转译React组件为JS代码
+  ],
+  "plugins": [
+    // 开启react代码的模块热替换（HMR）
+    "react-hot-loader/babel",
+    "@babel/plugin-proposal-class-properties",
+    //["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "@babel/plugin-proposal-function-sent",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-numeric-separator",
+    "@babel/plugin-proposal-throw-expressions",
+    ["import", {
+      "libraryName": "antd",
+      "style": true   // or 'css'
+    }]
+
+  ]
+}

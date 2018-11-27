@@ -1,0 +1,49 @@
+# Server settings
+server:
+    port: 9999
+    address: localhost
+    context-path: /demo
+
+# SPRING PROFILES
+spring:
+    # HTTP ENCODING
+    http:
+        encoding.charset: UTF-8
+        encoding.enable: true
+        encoding.force: true
+    datasource:
+        name: test
+        #url: jdbc:mysql://localhost:3306/crts?useUnicode=true&characterEncoding=utf-8
+        #username: root
+        #password: root
+        url: jdbc:oracle:thin:@hz4dw3224.corp.statestr.com:1521:O02DMHDEV
+        username: dmh
+        password: dmh
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        #driver-class-name: com.mysql.jdbc.Driver
+        driver-class-name: oracle.jdbc.OracleDriver
+        filters: stat,wall,log4j
+        maxActive: 20
+        initialSize: 3
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000 #test interval
+        minEvictableIdleTimeMillis: 300000 #shortest life cycle
+        validationQuery: SELECT 1 FROM DUAL
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+## MyBatis
+mybatis:
+    typeAliasesPackage: com.rui.**.bean.**
+    mapperLocations: classpath:/mapper/**.xml
+    configLocation: classpath:/mybatis-config.xml
+
+# LOGGING
+logging:
+    level:
+       com.ibatis:INFO
+       com.rui:INFO
