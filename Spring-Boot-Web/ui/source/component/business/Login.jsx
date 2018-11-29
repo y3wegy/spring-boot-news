@@ -47,13 +47,10 @@ class Login extends Component {
                 console.log('Received values of form: ', values);
                 //fetch("/api/user/login", {method: "post", body: JSON.stringify(values)})
                 jsonInstance.post('/api/user/login', values)
-                //.then(response => response.json())
+                .then(response => response.data)
                     .then(response => {
-                        const userRole = response.data.userRole;
-                        if (userRole) {
+                        if (response.DATA.userRole) {
                             window.location.href = "main.html";
-                        } else {
-                            window.location.href = "index.html";
                         }
                     })
                     .catch(error => message.error("Login failed." + error));

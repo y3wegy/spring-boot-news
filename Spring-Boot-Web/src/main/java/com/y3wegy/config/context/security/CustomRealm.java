@@ -37,7 +37,7 @@ public class CustomRealm extends AuthorizingRealm {
         String username = token.getUsername();
         List<SecurityUser> userList = userMapper.get(username);
         if (CollectionUtils.isEmpty(userList)) {
-            throw new AuthenticationException("user name or password invalid");
+            return null;
         }
         token.setRememberMe(true);
         return new SimpleAuthenticationInfo(userList.get(0), userList.get(0).getPassword(), getName());
