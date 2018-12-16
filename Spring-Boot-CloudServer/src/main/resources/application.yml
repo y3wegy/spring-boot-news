@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: CloudRegServer
+  security:
+    basic:
+      enabled: true
+    user:
+      name: y3wegy
+      password: 12345
+server:
+  port: 9000
+eureka:
+  datacenter: trmap
+  environment: product
+  instance:
+    hostname: localhost
+    appname: EurekaServer
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+  server:
+    # 关闭自我保护
+    enable-self-preservation: false
+    # 清理服务器
+    eviction-interval-timer-in-ms: 5000
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # eureka.client.registerWithEureka ：表示是否将自己注册到Eureka Server，默认为true。
+      # 由于当前这个应用就是Eureka Server，故而设为false
+    register-with-eureka: false
+    # eureka.client.fetchRegistry ：表示是否从Eureka Server获取注册信息，默认为true。因为这是一个单点的Eureka Server，
+    # 不需要同步其他的Eureka Server节点的数据，故而设为false。
+    fetch-registry: false

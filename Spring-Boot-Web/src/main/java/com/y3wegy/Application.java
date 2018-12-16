@@ -1,21 +1,22 @@
 package com.y3wegy;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import com.alibaba.druid.support.http.StatViewServlet;
+import com.alibaba.druid.support.http.WebStatFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 
-import com.alibaba.druid.support.http.StatViewServlet;
-import com.alibaba.druid.support.http.WebStatFilter;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by y3weg on 17-Mar-17.
  */
 @SpringBootApplication
+@EnableEurekaClient //not necessary in Eureka 2.0
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -30,8 +31,8 @@ public class Application {
     public ServletRegistrationBean druidServletRegistrationBean() {
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean();
         servletRegistrationBean.setServlet(new StatViewServlet());
-        servletRegistrationBean.addInitParameter("loginUsername","root");
-        servletRegistrationBean.addInitParameter("loginPassword","root");
+        servletRegistrationBean.addInitParameter("loginUsername", "root");
+        servletRegistrationBean.addInitParameter("loginPassword", "root");
         servletRegistrationBean.addUrlMappings("/druid/*");
         return servletRegistrationBean;
     }
