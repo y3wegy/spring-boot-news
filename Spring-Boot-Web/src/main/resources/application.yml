@@ -47,9 +47,16 @@ eureka:
     hostname: localhost
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
     appname: CloudService1
+    metadata-map:
+      Zone: HangZhou
   client:
     serviceUrl:
-      defaultZone: http://y3wegy:12345@localhost:9000/eureka/
+      HangZhou: http://y3wegy:12345@${eureka.instance.hostname}:9000/eureka/
+      BengBu: http://y3wegy:12345@${eureka.instance.hostname}:9001/eureka/
+    prefer-same-zone-eureka: true
+    availability-zones:
+      China: HangZhou,BengBu
+    region: China
   # HTTP ENCODING
   http:
     encoding.charset: UTF-8

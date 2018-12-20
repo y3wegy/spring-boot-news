@@ -1,34 +1,99 @@
 spring:
-  application:
-    name: CloudRegServer
+  profiles:
+    active: HangZhou
   security:
     basic:
       enabled: true
     user:
       name: y3wegy
       password: 12345
-server:
-  port: 9000
 eureka:
   datacenter: trmap
   environment: product
   instance:
     hostname: localhost
-    appname: EurekaServer
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    prefer-ip-address: true
   server:
     # 关闭自我保护
-    enable-self-preservation: false
+    enable-self-preservation: true
     # 清理服务器
     eviction-interval-timer-in-ms: 5000
   client:
     healthcheck:
       enabled: true
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       # eureka.client.registerWithEureka ：表示是否将自己注册到Eureka Server，默认为true。
       # 由于当前这个应用就是Eureka Server，故而设为false
     register-with-eureka: false
     # eureka.client.fetchRegistry ：表示是否从Eureka Server获取注册信息，默认为true。因为这是一个单点的Eureka Server，
     # 不需要同步其他的Eureka Server节点的数据，故而设为false。
-    fetch-registry: false
+    fetch-registry: true
+
+---
+Spring:
+  profiles: HangZhou
+  application:
+    name: ChinaHangZhouServer
+server:
+  port: 9000
+eureka:
+  instance:
+    appname: ChinaHangZhouServer #overwrite by Spring.application.name
+  client:
+    region: China
+    availability-zones:
+      China: HangZhou,BengBu
+    service-url:
+      HangZhou: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:9001/eureka/
+      BengBu: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:9002/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:9003/eureka/
+---
+Spring:
+  profiles: HangZhou2
+  application:
+    name: ChinaHangZhouServer
+server:
+  port: 9001
+eureka:
+  instance:
+    appname: ChinaHangZhouServer #overwrite by Spring.application.name
+  client:
+    region: China
+    availability-zones:
+      China: HangZhou,BengBu
+    service-url:
+      HangZhou: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:9000/eureka/
+      BengBu: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:9002/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:9003/eureka/
+---
+Spring:
+  profiles: BengBu
+  application:
+    name: ChinaBengBuServer
+server:
+  port: 9002
+eureka:
+  instance:
+    appname: ChinaBengBuServer #overwrite by Spring.application.name
+  client:
+    region: China
+    availability-zones:
+      China: BengBu,HangZhou
+    service-url:
+      HangZhou: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:9000/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:9001/eureka/
+      BengBu: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:9003/eureka/
+---
+Spring:
+  profiles: BengBu2
+  application:
+    name: ChinaBengBuServer
+server:
+  port: 9003
+eureka:
+  instance:
+    appname: ChinaBengBuServer #overwrite by Spring.application.name
+  client:
+    region: China
+    availability-zones:
+      China: BengBu,HangZhou
+    service-url:
+      HangZhou: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:9000/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:9001/eureka/
+      BengBu: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:9002/eureka/
