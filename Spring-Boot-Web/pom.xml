@@ -180,7 +180,7 @@
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
+            <artifactId>junit-j upiter-params</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -225,7 +225,7 @@
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.5</version>
+                <version>1.4.9</version>
                 <executions>
                     <execution>
                         <id>default</id>
@@ -238,7 +238,7 @@
                 <configuration>
                     <repository>${docker.image.prefix}/${project.artifactId}</repository>
                     <tag>${project.version}</tag>
-                    <dockerConfigFile>/src/main/resources/docker/Dockerfile</dockerConfigFile>
+                    <contextDirectory>/src/main/resources/docker/Dockerfile</contextDirectory>
                     <buildArgs>
                         <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
