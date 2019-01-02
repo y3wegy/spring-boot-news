@@ -1,6 +1,6 @@
 package com.y3wegy.mapper.master.user;
 
-import com.y3wegy.Application;
+import com.y3wegy.WebApplication;
 import com.y3wegy.bean.user.SecurityUser;
 import com.y3wegy.bean.user.UserRole;
 import com.y3wegy.bean.user.UserSex;
@@ -17,7 +17,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest(classes = WebApplication.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)
 public class UserMapperTest {
 
     @Autowired

@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Test;
 
 import java.text.DateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;

@@ -2,6 +2,7 @@ package com.y3wegy.config.database;
 
 import javax.sql.DataSource;
 
+import com.y3wegy.exception.RuiDBException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,6 @@ import org.springframework.context.annotation.Primary;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.y3wegy.config.prop.DruidProp;
-import com.y3wegy.exception.RuiDBException;
 
 /**
  * @author Rui

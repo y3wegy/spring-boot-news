@@ -1,30 +1,23 @@
 package com.y3wegy.controller.api;
 
+import com.y3wegy.base.ServiceExeption;
+import com.y3wegy.base.tools.JackSonHelper;
+import com.y3wegy.base.web.ResponseJson;
 import org.apache.log4j.Logger;
 import org.apache.shiro.authz.annotation.RequiresUser;
 import org.springframework.lang.Nullable;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonPrimitive;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * @author Rui
+ * @author y3wegy
  */
-@Controller
+@RequestMapping("/api")
+@RestController
 public class Index {
     private static final Logger logger = Logger.getLogger(Index.class);
-
-    @RequestMapping(path = "/api")
-    @ResponseBody
-    public String api() {
-        return "This  is First Spring Boot Project";
-    }
 
     @RequestMapping("/unAuthorized")
     public String errorPage() {
@@ -32,13 +25,13 @@ public class Index {
     }
 
     @RequiresUser
-    @RequestMapping(path = "/api/hello")
+    @RequestMapping(path = "/hello")
     @ResponseBody
-    public String hello(@RequestParam(value = "name", required = false) String name, @RequestBody @Nullable String request) {
+    public String hello(@RequestParam(value = "name", required = false) String name, @RequestBody @Nullable String request) throws ServiceExeption {
         logger.info(String.format("hello controller %s", name));
-        JsonParser jsonParser = new JsonParser();
-        JsonObject jsonObject = jsonParser.parse(request).getAsJsonObject();
-        jsonObject.add("name", new JsonPrimitive(name));
-        return "{\"response\":" + jsonObject.toString() + "}";
+        Map<String,Object> param = JackSonHelper.jsonStr2Obj(request, HashMap.class);
+        param.put("name",name);
+
+        return JackSonHelper.obj2JsonStr(new ResponseJson().data(param));
     }
 }

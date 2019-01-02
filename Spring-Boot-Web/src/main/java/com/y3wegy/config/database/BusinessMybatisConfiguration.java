@@ -3,6 +3,7 @@ package com.y3wegy.config.database;
 import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
+import com.y3wegy.config.database.helper.MyBatiesConfigHelper;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -15,7 +16,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.y3wegy.config.database.helper.MyBatiesConfigHelper;
 import com.y3wegy.config.prop.MyBatisProp;
 
 /**

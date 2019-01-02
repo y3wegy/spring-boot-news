@@ -42,6 +42,9 @@ spring:
     active: DEV
   application:
     name: CloudService
+  mvc:
+    view:
+      suffix: .html
 eureka:
   instance:
     hostname: localhost
@@ -62,9 +65,8 @@ eureka:
     encoding.charset: UTF-8
     encoding.enable: true
     encoding.force: true
-  mvc:
-    view:
-      suffix: .html
+  service.url: CloudService
+
 ## MyBatis
 mybatis:
   typeAliasesPackage: com.rui.**.bean.**

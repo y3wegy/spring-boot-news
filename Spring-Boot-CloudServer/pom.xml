@@ -4,20 +4,20 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.y3wegy</groupId>
-    <artifactId>Spring-Boot-CloudServer</artifactId>
+    <artifactId>spring-boot-cloudServer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Cloud Server</name>
-    <description>Demo project for Spring Boot</description>
+    <name>spring-boot-cloudServer</name>
+    <description>Reg Server</description>
 
     <properties>
-        <start-class>com.y3wegy.cloudserver.CloudServerApplication</start-class>
+        <start-class>com.y3wegy.CloudServerApplication</start-class>
         <java.version>1.8</java.version>
     </properties>
 
     <parent>
         <groupId>com.y3wegy</groupId>
-        <artifactId>Spring-Boot-News</artifactId>
+        <artifactId>spring-boot-news</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 

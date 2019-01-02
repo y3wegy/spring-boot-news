@@ -1,9 +1,9 @@
 package com.y3wegy.controller.api.user;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.y3wegy.JackSonHelper;
-import com.y3wegy.bean.ResponseJson;
-import com.y3wegy.bean.user.SecurityUser;
+import com.y3wegy.base.tools.JackSonHelper;
+import com.y3wegy.base.web.ResponseJson;
+import com.y3wegy.base.web.bean.user.SecurityUser;
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;

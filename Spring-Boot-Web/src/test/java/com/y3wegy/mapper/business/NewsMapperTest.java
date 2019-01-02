@@ -1,6 +1,6 @@
 package com.y3wegy.mapper.business;
 
-import com.y3wegy.Application;
+import com.y3wegy.WebApplication;
 import com.y3wegy.bean.news.News;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest(classes = WebApplication.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)
 public class NewsMapperTest {
 
     private static final Logger logger = Logger.getLogger(NewsMapperTest.class);
