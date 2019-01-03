@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-import com.y3wegy.bean.news.News;
+import com.y3wegy.base.web.bean.business.News;
 
 /**
  * @author y3wegy
@@ -17,7 +17,7 @@ public interface NewsMapper {
     /**
      * -------------------------------------------------------------
      *  author       date        comment
-     *  Chen,Rui   6/14/2018   init version
+     *  Chen,y3wegy   6/14/2018   init version
      *-------------------------------------------------------------
      * @description list all News
      * @return List

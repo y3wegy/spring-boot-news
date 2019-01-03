@@ -9,7 +9,7 @@ import java.util.List;
 
 
 /**
- * @author Rui
+ * @author y3wegy
  */
 @Repository("UserMapper2")
 public interface UserMapper2 {
@@ -20,7 +20,7 @@ public interface UserMapper2 {
      * @param userName
      * @return
      * @author @date        @comment
-     * Chen, Rui   11/22/2018     init version
+     * y3wegy   11/22/2018     init version
      * -------------------------------------------------------------
      */
     List<SecurityUser> findUserByUserName(@Param("userName") String userName);
@@ -31,7 +31,7 @@ public interface UserMapper2 {
      * @param id
      * @return
      * @author @date        @comment
-     * Chen, Rui   11/22/2018     init version
+     * y3wegy   11/22/2018     init version
      * -------------------------------------------------------------
      */
     Manager findMangerById(@Param("id") String id);

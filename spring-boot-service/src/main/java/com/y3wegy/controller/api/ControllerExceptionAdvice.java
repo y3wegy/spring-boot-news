@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 /**
- * @author Rui
+ * @author y3wegy
  */
 @ControllerAdvice("com.y3wegy.controller")
 public class ControllerExceptionAdvice {
@@ -25,7 +25,7 @@ public class ControllerExceptionAdvice {
      * @param ex
      * @return
      * @author @date        @comment
-     * Chen, Rui   11/12/2018     fix unauthorizedUrl in application.yml not work issue
+     * y3wegy   11/12/2018     fix unauthorizedUrl in application.yml not work issue
      * -------------------------------------------------------------
      */
     @ExceptionHandler(ServiceExeption.class)

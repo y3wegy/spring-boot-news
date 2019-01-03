@@ -12,8 +12,9 @@ import org.springframework.context.annotation.Bean;
 import java.util.HashMap;
 import java.util.Map;
 
+
 /**
- * Created by y3weg on 17-Mar-17.
+ * @author y3wegy
  */
 @SpringBootApplication
 @EnableEurekaClient //not necessary in Eureka 2.0

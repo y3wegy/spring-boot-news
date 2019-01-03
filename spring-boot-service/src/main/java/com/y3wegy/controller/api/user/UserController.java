@@ -1,6 +1,7 @@
 package com.y3wegy.controller.api.user;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.y3wegy.base.ServiceExeption;
 import com.y3wegy.base.tools.JackSonHelper;
 import com.y3wegy.base.web.ResponseJson;
 import com.y3wegy.base.web.bean.user.SecurityUser;
@@ -35,14 +36,14 @@ public class UserController {
 
     @RequestMapping(path = "/login", consumes = MediaType.APPLICATION_JSON_VALUE, produces = {MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
-    public String login(@RequestBody SecurityUser securityUserBean) throws JsonProcessingException {
+    public String login(@RequestBody SecurityUser securityUserBean) throws JsonProcessingException, ServiceExeption {
         logger.info("enter login");
         /*String lastUser = (String) redisTemplate.opsForValue().get("UserName");
         logger.info(lastUser);
         redisTemplate.opsForValue().set("UserName",name);*/
         UserRole userRole = userService.login(securityUserBean);
         securityUserBean.setUserRole(userRole);
-        ResponseJson responseJson = new ResponseJson().success(securityUserBean);
+        ResponseJson responseJson = new ResponseJson().success(JackSonHelper.obj2JsonStr(securityUserBean));
         return JackSonHelper.getObjectMapper().writeValueAsString(responseJson);
     }
 }

@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -38,5 +40,11 @@ public class DateTest {
         logger.info(dateFormat1.format(now));
         logger.info(dateFormat2.format(now));
         logger.info(dateFormat3.format(now));
+    }
+
+    @Test
+    void testTimeStamp() throws SQLException {
+        oracle.sql.TIMESTAMP timestamp = new oracle.sql.TIMESTAMP();
+        logger.info(String.valueOf(timestamp.timestampValue()));
     }
 }

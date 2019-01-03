@@ -1,0 +1,5 @@
+INSERT INTO `y3wegy`.`ROLE` (`ID`, `ROLE_NAME`) VALUES ('1', 'GUEST');
+INSERT INTO `y3wegy`.`ROLE` (`ID`, `ROLE_NAME`) VALUES ('2', 'WRITER');
+INSERT INTO `y3wegy`.`ROLE` (`ID`, `ROLE_NAME`) VALUES ('3', 'ADMIN');
+INSERT INTO `y3wegy`.`ROLE` (`ID`, `ROLE_NAME`) VALUES ('4', 'ROOT');
+INSERT INTO `y3wegy`.`ROLE` (`ID`, `ROLE_NAME`) VALUES ('5', 'DBA');

@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author Rui
+ * @author y3wegy
  */
 @Controller
 public class Index {

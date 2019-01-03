@@ -19,7 +19,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.y3wegy.config.prop.DruidProp;
 
 /**
- * @author Rui
+ * @author y3wegy
  * <p>
  * Druid的DataResource配置类
  * 凡是被Spring管理的类，实现接口 EnvironmentAware 重写方法 setEnvironment 可以在工程启动时，
