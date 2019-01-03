@@ -15,20 +15,20 @@ server:
 # SPRING PROFILES
 spring:
   profiles:
-    active: DEV
+    active: HangZhou
   application:
     name: CloudService
   datasource:
     master:
       name: master
-      url: jdbc:mysql://127.0.0.1:3306/gpt?useUnicode=true&characterEncoding=utf-8
+      url: jdbc:mysql://127.0.0.1:3306/y3wegy?useUnicode=true&characterEncoding=utf-8
       username: root
       password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.alibaba.druid.pool.DruidDataSource
     business:
       name: business
-      url: jdbc:mysql://127.0.0.1:3306/gpt?useUnicode=true&characterEncoding=utf-8
+      url: jdbc:mysql://127.0.0.1:3307/y3wegy?useUnicode=true&characterEncoding=utf-8
       username: root
       password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -39,7 +39,7 @@ spring:
       #    driver-class-name: com.mysql.cj.jdbc.Driver
       #使用druid数据源  https://github.com/alibaba/druid/wiki/DruidDataSource%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7%E5%88%97%E8%A1%A8
   druid:
-    filters: stat,wall,sl4j
+    filters: stat,wall,slf4j
     maxActive: 20
     initialSize: 3
     maxWait: 60000
@@ -91,28 +91,35 @@ eureka:
       suffix: .html
 ## MyBatis
 mybatis:
-  typeAliasesPackage: com.rui.**.bean.**
+  typeAliasesPackage: com.y3wegy.**.bean.**
   configLocation: classpath:/mybatis-config.xml
   mapperLocations: classpath:/mapper/*.xml
-
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
 ---
 # SPRING PROFILES
 spring:
-  profiles: DEV
+  profiles: HangZhou
 server:
-  port: 9900
+  port: 10100
 management:
   server:
-    port: 9500
+    port: 10200
 service.customMsg: RUI1
-
 ---
 # SPRING PROFILES
 spring:
-  profiles: DEV2
+  profiles: HangZhou2
 server:
-  port: 9901
+  port: 10101
 management:
   server:
-    port: 9501
+    port: 10201
 service.customMsg: RUI2

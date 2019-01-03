@@ -1,0 +1,6 @@
+CREATE TABLE `y3wegy`.`TAG`
+(
+  `ID`   VARCHAR(100) NOT NULL,
+  `NAME` VARCHAR(100) NULL,
+  PRIMARY KEY (`ID`)
+);

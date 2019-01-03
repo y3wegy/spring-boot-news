@@ -18,13 +18,13 @@ public interface UserMapper {
     /**
      * -------------------------------------------------------------
      *
-     * @param userName
      * @return
      * @author @date        @comment
-     * Chen, Rui   11/22/2018     init version
+     * y3wegy   11/22/2018     init version
      * -------------------------------------------------------------
+     * @param userName
      */
-    @Select("SELECT ID,USER_NAME,NICK_NAME,USER_SEX,USER_ROLE,PASSWORD FROM USERS WHERE USER_NAME = #{userName}")
+    @Select("SELECT ID,USER_NAME,NICK_NAME,USER_SEX,USER_ROLE,PASSWORD FROM USER WHERE USER_NAME = #{userName}")
     @Results({
             @Result(property = "id", column = "ID", javaType = String.class, jdbcType = JdbcType.VARCHAR),
             @Result(property = "userName", column = "USER_NAME"),
@@ -41,7 +41,7 @@ public interface UserMapper {
      *
      * @param user
      * @author @date        @comment
-     * Chen, Rui   11/22/2018     init version
+     * y3wegy   11/22/2018     init version
      * -------------------------------------------------------------
      */
     @Insert("INSERT INTO USERS(ID,USER_NAME,NICK_NAME,PASSWORD,USER_ROLE,USER_SEX) VALUES(#{id},#{userName},#{nickName}, #{password},#{userRole},#{userSex})")
@@ -52,7 +52,7 @@ public interface UserMapper {
      *
      * @param user
      * @author @date        @comment
-     * Chen, Rui   11/22/2018     init version
+     * y3wegy   11/22/2018     init version
      * -------------------------------------------------------------
      */
     @Update("UPDATE USERS SET NICK_NAME =#{nickName} WHERE ID =#{id}")
@@ -63,7 +63,7 @@ public interface UserMapper {
      *
      * @param id
      * @author @date        @comment
-     * Chen, Rui   11/22/2018     init version
+     * y3wegy   11/22/2018     init version
      * -------------------------------------------------------------
      */
     @Delete("DELETE FROM USERS WHERE ID =#{id}")

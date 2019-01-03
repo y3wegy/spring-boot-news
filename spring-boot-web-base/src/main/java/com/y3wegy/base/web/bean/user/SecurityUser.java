@@ -1,6 +1,6 @@
 package com.y3wegy.base.web.bean.user;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  *
@@ -9,8 +9,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 public class SecurityUser extends User{
 
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+
 
     public String getPassword() {
         return password;
