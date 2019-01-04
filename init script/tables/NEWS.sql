@@ -1,4 +1,4 @@
-CREATE TABLE `y3wegy`.`NEWS`
+CREATE TABLE `NEWS`
 (
   `ID`               VARCHAR(20)  NOT NULL,
   `TITLE`            VARCHAR(200) NULL,

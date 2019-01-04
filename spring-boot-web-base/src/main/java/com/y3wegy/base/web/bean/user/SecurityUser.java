@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  *
- * @author y3weg
+ * @author y3wegy
  * @date 17-Mar-17
  */
 public class SecurityUser extends User{

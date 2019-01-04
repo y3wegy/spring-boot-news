@@ -3,9 +3,10 @@ package com.y3wegy.base.web.bean.user;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
- * @author y3weg
+ * @author y3wegy
  * @date 17-Mar-17
  */
 public class User implements Serializable {
@@ -13,7 +14,7 @@ public class User implements Serializable {
     private String userName;
     private String nickName;
     private UserSex userSex;
-    private UserRole userRole;
+    private List<UserRole> userRoleList;
 
     public String getId() {
         return id;
@@ -47,12 +48,12 @@ public class User implements Serializable {
         this.userSex = userSex;
     }
 
-    public UserRole getUserRole() {
-        return userRole;
+    public List<UserRole> getUserRoleList() {
+        return userRoleList;
     }
 
-    public void setUserRole(UserRole userRole) {
-        this.userRole = userRole;
+    public void setUserRoleList(List<UserRole> userRoleList) {
+        this.userRoleList = userRoleList;
     }
 
     @Override

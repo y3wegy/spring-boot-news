@@ -1,4 +1,0 @@
-INSERT INTO `y3wegy`.`USER` (`ID`, `USER_NAME`, `NICK_NAME`,`PASSWORD`, `USER_SEX`) VALUES ('1', 'y3wegy', 'RUI','y3wegy', 'MALE');
-INSERT INTO `y3wegy`.`USER` (`ID`, `USER_NAME`, `NICK_NAME`,`PASSWORD`, `USER_SEX`) VALUES ('2', 'admin', 'admin','admin', 'MALE');
-INSERT INTO `y3wegy`.`USER` (`ID`, `USER_NAME`, `NICK_NAME`,`PASSWORD`, `USER_SEX`) VALUES ('3', 'DBA', 'DBA','DBA', 'MALE');
-INSERT INTO `y3wegy`.`USER` (`ID`, `USER_NAME`, `NICK_NAME`,`PASSWORD`, `USER_SEX`) VALUES ('4', 'WRITER', 'WRITER','WRITER', 'MALE');

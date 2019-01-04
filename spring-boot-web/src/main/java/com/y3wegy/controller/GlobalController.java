@@ -1,8 +1,10 @@
 package com.y3wegy.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.y3wegy.base.ServiceExeption;
 import com.y3wegy.base.tools.JackSonHelper;
 import com.y3wegy.base.web.ResponseJson;
+import com.y3wegy.base.web.tools.RestCallExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,10 +42,11 @@ public class GlobalController {
 
 
     @RequestMapping("version")
-    public String version() {
-        String response = restTemplate.getForObject(serviceURL + "/version", String.class);
-        logger.info(response);
-        return response;
+    public String version() throws ServiceExeption {
+        ResponseJson responseJson =  RestCallExecutor.get(restTemplate,serviceURL + "/version");
+        String jsonStr = JackSonHelper.obj2JsonStr(responseJson);
+        logger.info(jsonStr);
+        return jsonStr;
     }
 
     @RequestMapping("serviceInfo")

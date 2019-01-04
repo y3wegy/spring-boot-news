@@ -12,19 +12,20 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
- * @author y3weg
+ * @author y3wegy
  * @date 18-Mar-17
  * @RestController == @Controller + @ResponseBody  :only print content ,can't use for error link
  * @Controller for error link
  */
 @RequestMapping("/api/user")
-@Controller
+@RestController
 public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
@@ -34,16 +35,22 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(path = "/login", consumes = MediaType.APPLICATION_JSON_VALUE, produces = {MediaType.APPLICATION_JSON_VALUE})
-    @ResponseBody
-    public String login(@RequestBody SecurityUser securityUserBean) throws JsonProcessingException, ServiceExeption {
-        logger.info("enter login");
+    @RequestMapping(path = "/query", consumes = MediaType.APPLICATION_JSON_VALUE, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String query(@RequestBody SecurityUser userInfo) throws JsonProcessingException, ServiceExeption {
+        logger.info("enter query");
         /*String lastUser = (String) redisTemplate.opsForValue().get("UserName");
         logger.info(lastUser);
         redisTemplate.opsForValue().set("UserName",name);*/
-        UserRole userRole = userService.login(securityUserBean);
-        securityUserBean.setUserRole(userRole);
-        ResponseJson responseJson = new ResponseJson().success(JackSonHelper.obj2JsonStr(securityUserBean));
+        List<SecurityUser> userList = userService.queryUserByUserName(userInfo);
+        ResponseJson responseJson = new ResponseJson().success(JackSonHelper.obj2JsonStr(userList));
+        return JackSonHelper.getObjectMapper().writeValueAsString(responseJson);
+    }
+
+    @RequestMapping(path = "/queryRole", consumes = MediaType.APPLICATION_JSON_VALUE, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String queryRole(@RequestBody SecurityUser userInfo) throws JsonProcessingException, ServiceExeption {
+        logger.info("enter queryRole");
+        List<UserRole> userRoleList = userService.queryUserRolesByUserName(userInfo);
+        ResponseJson responseJson = new ResponseJson().success(JackSonHelper.obj2JsonStr(userRoleList));
         return JackSonHelper.getObjectMapper().writeValueAsString(responseJson);
     }
 }

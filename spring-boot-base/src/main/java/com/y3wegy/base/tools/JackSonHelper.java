@@ -2,6 +2,7 @@ package com.y3wegy.base.tools;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -77,10 +78,10 @@ public class JackSonHelper {
         }
     }
 
-    public static <T> T jsonStr2Obj(String jsonStr, Class<T> clazz) throws ServiceExeption {
+    public static <T> T jsonStr2Obj(String jsonStr, TypeReference<T> type) throws ServiceExeption {
         T readValue = null;
         try {
-            readValue = getObjectMapper().readValue(jsonStr, clazz);
+            readValue = getObjectMapper().readValue(jsonStr, type);
         } catch (IOException e) {
             logger.error("parse failed", e);
             throw new ServiceExeption("parse failed", e);

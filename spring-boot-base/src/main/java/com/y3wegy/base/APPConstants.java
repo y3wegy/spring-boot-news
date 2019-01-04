@@ -2,13 +2,13 @@ package com.y3wegy.base;
 
 /**
  * Created with IntelliJ IDEA.
- * User: y3weg
+ * User: y3wegy
  * Date: 23-Sep-17-023
  * Time: 11:55:01
  * To change this template use File | Settings | File Templates.
  * Description:
  * Global constants
- * @author y3weg
+ * @author y3wegy
  */
 public interface APPConstants {
     int MAX_FILE_UPLOAD_SIZE = 5242880;

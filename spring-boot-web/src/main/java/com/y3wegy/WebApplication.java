@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by y3weg on 17-Mar-17.
+ * Created by y3wegy on 17-Mar-17.
  */
 @SpringBootApplication
 @EnableEurekaClient //not necessary in Eureka 2.0

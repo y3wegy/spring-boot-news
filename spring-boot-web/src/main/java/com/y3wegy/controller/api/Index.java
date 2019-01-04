@@ -1,5 +1,6 @@
 package com.y3wegy.controller.api;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.y3wegy.base.ServiceExeption;
 import com.y3wegy.base.tools.JackSonHelper;
 import com.y3wegy.base.web.ResponseJson;
@@ -30,7 +31,7 @@ public class Index {
     @ResponseBody
     public String hello(@RequestParam(value = "name", required = false) String name, @RequestBody @Nullable String request) throws ServiceExeption {
         logger.info(String.format("hello controller %s", name));
-        Map<String,Object> param = JackSonHelper.jsonStr2Obj(request, HashMap.class);
+        Map<String,Object> param = JackSonHelper.jsonStr2Obj(request, new TypeReference<HashMap>(){});
         param.put("name",name);
 
         return JackSonHelper.obj2JsonStr(new ResponseJson().data(param));

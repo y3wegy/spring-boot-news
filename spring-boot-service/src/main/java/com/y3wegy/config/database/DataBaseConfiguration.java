@@ -1,8 +1,8 @@
 package com.y3wegy.config.database;
 
-import javax.sql.DataSource;
-
+import com.alibaba.druid.pool.DruidDataSource;
 import com.y3wegy.base.ServiceExeption;
+import com.y3wegy.config.prop.DruidProp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
-import com.alibaba.druid.pool.DruidDataSource;
-import com.y3wegy.config.prop.DruidProp;
+import javax.sql.DataSource;
 
 /**
  * @author y3wegy

@@ -7,23 +7,28 @@ package com.y3wegy.base.web.bean.user;
  */
 public enum UserRole {
     /**
-     * user
+     * GUEST
      */
     USER,
     /**
      * MANGER
      */
-    MANGER,
+    WRITER,
+
     /**
      * ADMIN
      */
     ADMIN,
     /**
-     * GUEST
+     * ROOT
      */
-    GUEST,
+    ROOT,
+    /**
+     * DBA
+     */
+    DBA,
     /**
      * UNKNOW
      */
-    UNKNOW;
+    UNKNOW
 }

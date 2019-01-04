@@ -89,7 +89,7 @@ spring:
       type: com.alibaba.druid.pool.DruidDataSource
     business:
       name: business
-      url: jdbc:mysql://127.0.0.1:3306/y3wegy?useUnicode=true&characterEncoding=utf-8
+      url: jdbc:mysql://127.0.0.1:3307/y3wegy?useUnicode=true&characterEncoding=utf-8
       username: root
       password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
