@@ -82,17 +82,17 @@ spring:
   datasource:
     master:
       name: master
-      url: jdbc:mysql://127.0.0.1:3306/y3wegy?useUnicode=true&characterEncoding=utf-8
-      username: root
-      password: root
-      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:oracle:thin:@hz4dw3224.corp.statestr.com:1521:O02DMHDEV
+      username: dmh
+      password: dmh
+      driver-class-name: oracle.jdbc.OracleDriver
       type: com.alibaba.druid.pool.DruidDataSource
     business:
       name: business
-      url: jdbc:mysql://127.0.0.1:3307/y3wegy?useUnicode=true&characterEncoding=utf-8
-      username: root
-      password: root
-      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:oracle:thin:@hz4dw3224.corp.statestr.com:1521:O02DMHDEV
+      username: dmh
+      password: dmh
+      driver-class-name: oracle.jdbc.OracleDriver
       type: com.alibaba.druid.pool.DruidDataSource
       #    url: jdbc:mysql://192.168.99.100:3306/rui?useUnicode=true&characterEncoding=utf-8
       #    username: root

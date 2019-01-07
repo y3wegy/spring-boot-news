@@ -1,4 +1,4 @@
-package com.y3wegy.controller.api;
+package com.y3wegy.controller;
 
 import javax.servlet.http.HttpServletRequest;
 

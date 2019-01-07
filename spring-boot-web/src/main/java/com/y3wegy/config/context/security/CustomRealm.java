@@ -1,5 +1,6 @@
 package com.y3wegy.config.context.security;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.y3wegy.base.ServiceExeption;
 import com.y3wegy.base.web.bean.user.SecurityUser;
 import com.y3wegy.base.web.bean.user.UserRole;
@@ -18,6 +19,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -50,8 +52,9 @@ public class CustomRealm extends AuthorizingRealm {
         securityUser.setPassword(password);
 
         try {
-            List<SecurityUser> userList = RestCallExecutor.<SecurityUser>postForList(restTemplate,
-                    serviceURL + "/api/user/query", securityUser);
+            List<SecurityUser> userList = RestCallExecutor.postForObject(restTemplate,
+                    serviceURL + "/api/user/query", securityUser, new TypeReference<List<SecurityUser>>() {
+                    });
             if (CollectionUtils.isEmpty(userList)) {
                 return null;
             }
@@ -72,8 +75,8 @@ public class CustomRealm extends AuthorizingRealm {
         SecurityUser securityUser = (SecurityUser) super.getAvailablePrincipal(principalCollection);
         List<UserRole> userRoleList = null;
         try {
-            userRoleList = RestCallExecutor.postForList(restTemplate,
-                    serviceURL + "/api/user/queryRole", securityUser);
+            userRoleList = RestCallExecutor.postForObject(restTemplate,
+                    serviceURL + "/api/user/queryRole", securityUser, new TypeReference<List<UserRole>>() {});
         } catch (ServiceExeption serviceExeption) {
             logger.error("Call " + serviceURL + "/api/user/queryRole failed", serviceExeption);
         }
@@ -81,7 +84,8 @@ public class CustomRealm extends AuthorizingRealm {
             return null;
         }
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-        Set<String> roles = shiroSampleMapper.getRolesByUsername(securityUser.getUserName());
+        Set<String> roles = new HashSet<>(userRoleList.size());
+        userRoleList.forEach(userRole -> roles.add(userRole.name()));
         authorizationInfo.setRoles(roles);
         roles.forEach(role -> {
             Set<String> permissions = this.shiroSampleMapper.getPermissionsByRole(role);

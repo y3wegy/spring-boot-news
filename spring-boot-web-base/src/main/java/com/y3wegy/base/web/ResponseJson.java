@@ -8,30 +8,30 @@ import java.util.HashMap;
  */
 public class ResponseJson extends HashMap<String, Object> implements Serializable {
 
-    private static final String KEY_OP = "OPERATION";
-    private static final String KEY_SUCC = "SUCCESS";
-    private static final String KEY_CODE = "CODE";
-    private static final String KEY_DATA = "DATA";
+    private static final String KEY_OP = "operation";
+    private static final String KEY_SUCC = "isSuccess";
+    private static final String KEY_CODE = "code";
+    private static final String KEY_DATA = "data";
 
-    private static final String DEF_OP = "Default";
-    private static final String SUCCESS = "Success";
-    private static final String FAIL = "Fail";
+    private static final String DEF_OP = "default";
+    private static final String DEF_SUCCESS = "true";
+    private static final String DEF_FAIL = "false";
     private static final String SUCC_CODE = "1";
     private static final String FAIL_CODE = "-1";
 
     public ResponseJson() {
         this.put(KEY_OP, DEF_OP);
-        this.put(KEY_SUCC, SUCCESS);
+        this.put(KEY_SUCC, DEF_SUCCESS);
         this.put(KEY_CODE, SUCC_CODE);
     }
 
     public ResponseJson(String operation) {
         this.put(KEY_OP, operation);
-        this.put(KEY_SUCC, SUCCESS);
+        this.put(KEY_SUCC, DEF_SUCCESS);
         this.put(KEY_CODE, SUCC_CODE);
     }
 
-    public ResponseJson(String operation, String success, String code, Object data) {
+    public ResponseJson(String operation, boolean success, String code, Object data) {
         this.put(KEY_OP, operation);
         this.put(KEY_SUCC, success);
         this.put(KEY_CODE, code);
@@ -39,27 +39,28 @@ public class ResponseJson extends HashMap<String, Object> implements Serializabl
     }
 
     public ResponseJson success(Object data) {
-        this.put(KEY_SUCC, SUCCESS);
+        this.put(KEY_OP, DEF_OP);
+        this.put(KEY_SUCC, DEF_SUCCESS);
         this.put(KEY_DATA, data);
         return this;
     }
 
     public ResponseJson success(String successCode, Object data) {
-        this.put(KEY_SUCC, FAIL);
+        this.put(KEY_SUCC, DEF_SUCCESS);
         this.put(KEY_CODE, successCode);
         this.put(KEY_DATA, data);
         return this;
     }
 
     public ResponseJson fail(Object data) {
-        this.put(KEY_SUCC, FAIL);
+        this.put(KEY_SUCC, DEF_FAIL);
         this.put(KEY_CODE, FAIL_CODE);
         this.put(KEY_DATA, data);
         return this;
     }
 
     public ResponseJson fail(String failCode, Object data) {
-        this.put(KEY_SUCC, FAIL);
+        this.put(KEY_SUCC, DEF_FAIL);
         this.put(KEY_CODE, failCode);
         this.put(KEY_DATA, data);
         return this;
@@ -78,6 +79,18 @@ public class ResponseJson extends HashMap<String, Object> implements Serializabl
     public ResponseJson data(Object data) {
         this.put(KEY_DATA, data);
         return this;
+    }
+
+    public String getOperation() {
+        return String.valueOf(this.get(KEY_OP));
+    }
+
+    public boolean isSuccess() {
+        return Boolean.parseBoolean(String.valueOf(this.get(KEY_SUCC)));
+    }
+
+    public String getCode() {
+        return String.valueOf(this.get(KEY_CODE));
     }
 
     public Object getData() {

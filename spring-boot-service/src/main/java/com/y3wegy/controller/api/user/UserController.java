@@ -36,14 +36,15 @@ public class UserController {
     UserService userService;
 
     @RequestMapping(path = "/query", consumes = MediaType.APPLICATION_JSON_VALUE, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public String query(@RequestBody SecurityUser userInfo) throws JsonProcessingException, ServiceExeption {
+    public ResponseJson query(@RequestBody SecurityUser userInfo) throws JsonProcessingException, ServiceExeption {
         logger.info("enter query");
         /*String lastUser = (String) redisTemplate.opsForValue().get("UserName");
         logger.info(lastUser);
         redisTemplate.opsForValue().set("UserName",name);*/
         List<SecurityUser> userList = userService.queryUserByUserName(userInfo);
-        ResponseJson responseJson = new ResponseJson().success(JackSonHelper.obj2JsonStr(userList));
-        return JackSonHelper.getObjectMapper().writeValueAsString(responseJson);
+        /*ResponseJson responseJson = new ResponseJson().success(JackSonHelper.obj2JsonStr(userList));
+        return JackSonHelper.getObjectMapper().writeValueAsString(responseJson);*/
+        return new ResponseJson().success(JackSonHelper.obj2JsonStr(userList));
     }
 
     @RequestMapping(path = "/queryRole", consumes = MediaType.APPLICATION_JSON_VALUE, produces = {MediaType.APPLICATION_JSON_VALUE})

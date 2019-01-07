@@ -2,9 +2,15 @@ package com.y3wegy.base.tools;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.y3wegy.base.ServiceExeption;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 class JackSonHelperTest {
 
@@ -65,7 +71,22 @@ class JackSonHelperTest {
             e.printStackTrace();
         }
     }
-    class User{
+
+    @Test
+    void testParse() throws ServiceExeption {
+        User user = new User();
+        user.setId("1");
+        user.setPassword("2");
+        List<User> userList = new ArrayList<>(1);
+        userList.add(user);
+
+        String jsonStr = JackSonHelper.obj2JsonStr(userList );
+        List<User> n= JackSonHelper.jsonStr2Obj(jsonStr, new TypeReference<List<User>>() {
+        });
+        logger.info(String.valueOf(n.size()));
+    }
+
+    static class User{
         private String id;
         @JsonIgnore
         private String password;
