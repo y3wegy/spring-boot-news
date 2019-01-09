@@ -1,11 +1,9 @@
 package com.y3wegy.config.context.security;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.y3wegy.base.ServiceExeption;
-import com.y3wegy.base.web.bean.user.SecurityUser;
-import com.y3wegy.base.web.bean.user.UserRole;
-import com.y3wegy.base.web.tools.RestCallExecutor;
-import com.y3wegy.mapper.master.ShiroSampleMapper;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -19,9 +17,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.y3wegy.base.ServiceExeption;
+import com.y3wegy.base.tools.JackSonHelper;
+import com.y3wegy.base.web.ResponseJson;
+import com.y3wegy.base.web.bean.user.SecurityUser;
+import com.y3wegy.base.web.bean.user.UserRole;
+import com.y3wegy.base.web.tools.RestCallExecutor;
+import com.y3wegy.mapper.master.ShiroSampleMapper;
+import com.y3wegy.rpc.impl.UserFeignClient;
 
 /**
  * @author y3wegy
@@ -39,6 +43,9 @@ public class CustomRealm extends AuthorizingRealm {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private UserFeignClient userFeignClient;
+
     /**
      * login in validate
      */
@@ -52,9 +59,11 @@ public class CustomRealm extends AuthorizingRealm {
         securityUser.setPassword(password);
 
         try {
-            List<SecurityUser> userList = RestCallExecutor.postForObject(restTemplate,
+            /*List<SecurityUser> userList = RestCallExecutor.postForObject(restTemplate,
                     serviceURL + "/api/user/query", securityUser, new TypeReference<List<SecurityUser>>() {
-                    });
+                    });*/
+            ResponseJson responseJson = userFeignClient.queryUser(securityUser);
+            List<SecurityUser> userList = JackSonHelper.jsonStr2Obj(String.valueOf(responseJson.getData()),new TypeReference<List<SecurityUser>>() {});
             if (CollectionUtils.isEmpty(userList)) {
                 return null;
             }

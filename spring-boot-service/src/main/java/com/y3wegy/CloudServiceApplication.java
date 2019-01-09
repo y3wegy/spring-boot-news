@@ -1,23 +1,25 @@
 package com.y3wegy;
 
-import com.alibaba.druid.support.http.StatViewServlet;
-import com.alibaba.druid.support.http.WebStatFilter;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.alibaba.druid.support.http.StatViewServlet;
+import com.alibaba.druid.support.http.WebStatFilter;
 
 
+
+@SpringBootApplication
+@EnableDiscoveryClient  //not necessary in Eureka 2.0
 /**
  * @author y3wegy
  */
-@SpringBootApplication
-@EnableEurekaClient //not necessary in Eureka 2.0
 public class CloudServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(CloudServiceApplication.class, args);

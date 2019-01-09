@@ -41,15 +41,18 @@ spring:
   profiles:
     active: DEV
   application:
-    name: web
+    name: CloudWeb
   mvc:
     view:
       suffix: .html
+  output:
+    ansi:
+      enabled: detect
 eureka:
   instance:
     hostname: localhost
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
-    appname: CloudService1
+    appname: CloudWeb
     metadata-map:
       Zone: HangZhou
   client:
@@ -68,7 +71,9 @@ eureka:
   service:
     name: CloudService
     url: http://${eureka.service.name}
-
+feign:
+  hystrix:
+    enabled: true
 ## MyBatis
 mybatis:
   typeAliasesPackage: com.rui.**.bean.**
@@ -82,17 +87,17 @@ spring:
   datasource:
     master:
       name: master
-      url: jdbc:oracle:thin:@hz4dw3224.corp.statestr.com:1521:O02DMHDEV
-      username: dmh
-      password: dmh
-      driver-class-name: oracle.jdbc.OracleDriver
+      url: jdbc:mysql://127.0.0.1:3306/y3wegy?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.alibaba.druid.pool.DruidDataSource
     business:
       name: business
-      url: jdbc:oracle:thin:@hz4dw3224.corp.statestr.com:1521:O02DMHDEV
-      username: dmh
-      password: dmh
-      driver-class-name: oracle.jdbc.OracleDriver
+      url: jdbc:mysql://127.0.0.1:3306/y3wegy?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.alibaba.druid.pool.DruidDataSource
       #    url: jdbc:mysql://192.168.99.100:3306/rui?useUnicode=true&characterEncoding=utf-8
       #    username: root

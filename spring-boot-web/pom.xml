@@ -16,6 +16,7 @@
 
     <properties>
         <start-class>com.y3wegy.WebApplication</start-class>
+        <feign_hystrix.version>2.0.2.RELEASE</feign_hystrix.version>
         <docker.image.prefix>SpringBoot</docker.image.prefix>
     </properties>
 
@@ -24,7 +25,7 @@
         <dependency>
             <groupId>com.y3wegy</groupId>
             <artifactId>spring-boot-web-base</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
         <!--spring boot-->
         <dependency>
@@ -43,6 +44,29 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>${feign_hystrix.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>${feign_hystrix.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+            <version>${feign_hystrix.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+            <version>${feign_hystrix.version}</version>
         </dependency>
 
         <!--test-->
@@ -217,5 +241,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

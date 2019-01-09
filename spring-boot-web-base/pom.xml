@@ -15,7 +15,7 @@
         <dependency>
             <groupId>com.y3wegy</groupId>
             <artifactId>spring-boot-base</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
 </project>
