@@ -2,13 +2,16 @@ package com.y3wegy.base.web.bean.business;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import javax.persistence.Entity;
+
 /**
  * @author y3wegy
  */
+@Entity(name = "News")
 public class News {
     private String id;
-    private String topic;
-    private String detail;
+    private String title;
+    private String content;
     private String author;
     private String lastUpdateBy;
     private String lastUpdateDate;
@@ -21,20 +24,20 @@ public class News {
         this.id = id;
     }
 
-    public String getTopic() {
-        return topic;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getDetail() {
-        return detail;
+    public String getContent() {
+        return content;
     }
 
-    public void setDetail(String detail) {
-        this.detail = detail;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getAuthor() {

@@ -1,4 +1,4 @@
-package com.y3wegy.base.web;
+package com.y3wegy.base.web.bean;
 
 import java.io.Serializable;
 import java.util.HashMap;
