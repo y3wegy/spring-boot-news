@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 
+/**
+ * @author y3wegy
+ */
 @Mapper
 @Repository("NewsMapper")
 public interface NewsMapper {

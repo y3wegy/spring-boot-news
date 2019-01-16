@@ -78,7 +78,7 @@ feign:
 mybatis:
   typeAliasesPackage: com.rui.**.bean.**
   configLocation: classpath:/mybatis-config.xml
-  mapperLocations: classpath:/mapper/*.xml
+  mapperLocations: classpath:/mapper/**/*.xml
 
 ---
 # SPRING PROFILES

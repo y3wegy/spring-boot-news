@@ -3,7 +3,7 @@ package com.y3wegy.controller.api.user;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.y3wegy.base.ServiceExeption;
 import com.y3wegy.base.tools.JackSonHelper;
-import com.y3wegy.base.web.ResponseJson;
+import com.y3wegy.base.web.bean.ResponseJson;
 import com.y3wegy.base.web.bean.user.SecurityUser;
 import com.y3wegy.base.web.bean.user.UserRole;
 import com.y3wegy.service.user.UserService;

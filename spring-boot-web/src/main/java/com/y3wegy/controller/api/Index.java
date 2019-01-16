@@ -3,7 +3,7 @@ package com.y3wegy.controller.api;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.y3wegy.base.ServiceExeption;
 import com.y3wegy.base.tools.JackSonHelper;
-import com.y3wegy.base.web.ResponseJson;
+import com.y3wegy.base.web.bean.ResponseJson;
 import org.apache.shiro.authz.annotation.RequiresUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

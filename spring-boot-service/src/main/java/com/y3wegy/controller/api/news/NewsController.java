@@ -2,7 +2,7 @@ package com.y3wegy.controller.api.news;
 
 import com.y3wegy.base.ServiceExeption;
 import com.y3wegy.base.tools.JackSonHelper;
-import com.y3wegy.base.web.ResponseJson;
+import com.y3wegy.base.web.bean.ResponseJson;
 import com.y3wegy.base.web.bean.business.News;
 import com.y3wegy.service.user.NewService;
 import org.slf4j.Logger;

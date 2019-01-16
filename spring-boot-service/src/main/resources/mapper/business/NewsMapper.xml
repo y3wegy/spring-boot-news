@@ -3,8 +3,8 @@
 <mapper namespace="com.y3wegy.mapper.business.NewsMapper">
     <resultMap id="NewsMap" type="com.y3wegy.base.web.bean.business.News">
         <result column="ID" property="id"/>
-        <result column="TOPIC" property="topic"/>
-        <result column="DETAIL" property="detail"/>
+        <result column="TOPIC" property="title"/>
+        <result column="DETAIL" property="content"/>
         <result column="AUTHOR" property="author"/>
         <result column="LAST_UPDATE_DATE" property="lastUpdateDate"/>
         <result column="LAST_UPDATE_BY" property="lastUpdateBy"/>

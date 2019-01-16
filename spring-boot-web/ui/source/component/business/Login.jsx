@@ -62,7 +62,8 @@ class Login extends Component {
   render() {
     const {getFieldDecorator} = this.props.form;
     return (
-        <Form onSubmit={this.handleSubmit} className="login-form">
+        <div style={{textAlign:'center',width:'100%'}}>
+        <Form onSubmit={this.handleSubmit} className="login-form" style={{width:'400px',display:'inline-block'}}>
           <FormItem>
             {getFieldDecorator('userName', {
               rules: [{required: true, message: 'Please input your username!'}],
@@ -97,6 +98,7 @@ class Login extends Component {
             Or <a href="">register now!</a>
           </FormItem>
         </Form>
+        </div>
     );
 
   }

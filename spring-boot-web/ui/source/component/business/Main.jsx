@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import "@babel/polyfill";
-import {LocaleProvider, DatePicker, message, Popconfirm, Button} from 'antd';
+import {message, Popconfirm, Button} from 'antd';
+import UploadFile from './upload/UploadFile';
 import Logo from './logo.svg';
 import './App.css';
 
@@ -53,8 +54,10 @@ export default class Main extends Component {
                 <h1 className="App-title">Welcome to React</h1>
                 <p className="App-intro">{JSON.stringify(this.state.response)}</p>
                 <Popconfirm title="Welcome" okText="test" autoAdjustOverflow={true}>
-                    <Button>Delete</Button>
-                </Popconfirm>
+              <Button>Delete</Button>
+            </Popconfirm>
+              <br/>
+              <UploadFile/>
             </div>
         );
     }

@@ -2,7 +2,7 @@ package com.y3wegy.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.y3wegy.base.tools.JackSonHelper;
-import com.y3wegy.base.web.ResponseJson;
+import com.y3wegy.base.web.bean.ResponseJson;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

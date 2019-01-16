@@ -2,7 +2,7 @@ package com.y3wegy.controller;
 
 import com.y3wegy.base.ServiceExeption;
 import com.y3wegy.base.tools.JackSonHelper;
-import com.y3wegy.base.web.ResponseJson;
+import com.y3wegy.base.web.bean.ResponseJson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;

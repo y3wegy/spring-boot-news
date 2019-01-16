@@ -208,6 +208,7 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>${start-class}</mainClass>
+                    <fork>true</fork>
                 </configuration>
                 <executions>
                     <execution>

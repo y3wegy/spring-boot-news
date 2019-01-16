@@ -93,7 +93,7 @@ eureka:
 mybatis:
   typeAliasesPackage: com.y3wegy.**.bean.**
   configLocation: classpath:/mybatis-config.xml
-  mapperLocations: classpath:/mapper/*.xml
+  mapperLocations: classpath:/mapper/**/*.xml
 management:
   endpoints:
     web:

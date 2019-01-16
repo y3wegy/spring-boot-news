@@ -20,7 +20,7 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.y3wegy.base.ServiceExeption;
 import com.y3wegy.base.tools.JackSonHelper;
-import com.y3wegy.base.web.ResponseJson;
+import com.y3wegy.base.web.bean.ResponseJson;
 import com.y3wegy.base.web.bean.user.SecurityUser;
 import com.y3wegy.base.web.bean.user.UserRole;
 import com.y3wegy.base.web.tools.RestCallExecutor;
