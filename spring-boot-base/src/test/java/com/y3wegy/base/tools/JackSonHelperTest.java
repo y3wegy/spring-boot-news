@@ -1,20 +1,51 @@
 package com.y3wegy.base.tools;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.y3wegy.base.ServiceExeption;
+import java.util.*;
+
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.core.util.DefaultIndenter;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.y3wegy.base.ServiceExeption;
 
 class JackSonHelperTest {
 
     private static final Logger logger = LoggerFactory.getLogger(JackSonHelperTest.class);
+
+    @Test
+    void testIndent() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+
+        // Setup a pretty printer with an indenter (indenter has 4 spaces in this case)
+        DefaultPrettyPrinter.Indenter indenter = new DefaultIndenter("    ", DefaultIndenter.SYS_LF);
+        DefaultPrettyPrinter printer = new DefaultPrettyPrinter();
+        printer.indentObjectsWith(indenter);
+        printer.indentArraysWith(indenter);
+
+        // Some object to serialize
+        Map<String, Object> value = new HashMap<>();
+        value.put("foo", Arrays.asList("a", "b", "c"));
+
+        // Serialize it using the custom printer
+        String json = mapper.writer(printer).writeValueAsString(value);
+
+        // Print it
+        System.out.println(json);
+    }
+
+    @Test
+    void testEmptyStr() {
+        logger.info(String.format("%"+3+"s",""));
+    }
+
     @Test
     public void testSS() {
         try {
@@ -80,13 +111,12 @@ class JackSonHelperTest {
         List<User> userList = new ArrayList<>(1);
         userList.add(user);
 
-        String jsonStr = JackSonHelper.obj2JsonStr(userList );
-        List<User> n= JackSonHelper.jsonStr2Obj(jsonStr, new TypeReference<List<User>>() {
-        });
+        String jsonStr = JackSonHelper.obj2JsonStr(userList);
+        List<User> n = JackSonHelper.jsonStr2Obj(jsonStr, new TypeReference<List<User>>() {});
         logger.info(String.valueOf(n.size()));
     }
 
-    static class User{
+    static class User {
         private String id;
         @JsonIgnore
         private String password;

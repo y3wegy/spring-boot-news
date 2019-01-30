@@ -129,6 +129,7 @@ spring:
         min-idle: 0
         max-active: 8
         max-wait: -1
+    password: 12345
   #      sentinel:
   #        master: master1
   #        nodes: 192.168.99.100:32768

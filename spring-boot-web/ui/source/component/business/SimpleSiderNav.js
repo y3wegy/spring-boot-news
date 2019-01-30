@@ -33,7 +33,7 @@ export default class SimpleSiderNav extends Component {
                onCollapse={this.onCollapse}
         >
           <Menu
-              //theme="dark"
+              theme="dark"
               mode="inline"
               defaultSelectedKeys={['1']}
               defaultOpenKeys={['sub1']}

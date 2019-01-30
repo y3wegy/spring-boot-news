@@ -1,7 +1,7 @@
 <Configuration status="WARN" monitorInterval="30">
     <Properties>
         <Property name="instance">SpringBoot</Property>
-        <Property name="log.dir">WEB-INF/logs</Property>
+        <Property name="log.dir">./WEB-INF/logs</Property>
     </Properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
