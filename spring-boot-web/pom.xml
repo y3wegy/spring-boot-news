@@ -15,7 +15,7 @@
     </parent>
 
     <properties>
-        <start-class>com.y3wegy.WebApplication</start-class>
+        <start-class>com.y3wegy.web.WebApplication</start-class>
         <feign_hystrix.version>2.0.2.RELEASE</feign_hystrix.version>
         <docker.image.prefix>SpringBoot</docker.image.prefix>
     </properties>
@@ -208,6 +208,7 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>${start-class}</mainClass>
+                    <fork>true</fork>
                 </configuration>
                 <executions>
                     <execution>

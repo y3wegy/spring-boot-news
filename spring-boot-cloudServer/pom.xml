@@ -11,7 +11,7 @@
     <description>Reg Server</description>
 
     <properties>
-        <start-class>com.y3wegy.CloudServerApplication</start-class>
+        <start-class>com.y3wegy.server.CloudServerApplication</start-class>
         <java.version>1.8</java.version>
     </properties>
 

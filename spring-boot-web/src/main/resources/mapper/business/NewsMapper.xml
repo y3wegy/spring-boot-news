@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.y3wegy.web.mapper.business.NewsMapper">
+    <resultMap id="NewsMap" type="com.y3wegy.base.web.bean.business.News">
+        <result column="ID" property="id"/>
+        <result column="TITLE" property="title"/>
+        <result column="CONTENT" property="content"/>
+        <result column="AUTHOR" property="author"/>
+        <result column="LAST_UPDATE_DATE" property="lastUpdateDate"/>
+        <result column="LAST_UPDATE_BY" property="lastUpdateBy"/>
+    </resultMap>
+    
+    <select id="list" resultMap="NewsMap">
+        SELECT ID,TITLE,CONTENT,AUTHOR,LAST_UPDATE_DATE,LAST_UPDATE_BY FROM NEWS
+    </select>
+
+</mapper>

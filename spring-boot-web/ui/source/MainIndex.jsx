@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
-import Main from './component/business/Main';
+import MainPage from './component/business/MainPage';
 
 import './component/business/App.css';
 
@@ -14,9 +14,9 @@ const render = Component => {
     );
 }
 
-render(Main);
+render(MainPage);
 if (module.hot) {
-    module.hot.accept('./component/business/Main', () => {
-        render(Main)
+    module.hot.accept('./component/business/MainPage', () => {
+        render(MainPage)
     });
 }

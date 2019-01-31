@@ -2,6 +2,8 @@ package com.y3wegy.web.rpc.cloudservice;
 
 import com.y3wegy.web.rpc.cloudservice.feignclient.UserFeignClient;
 import com.y3wegy.web.rpc.cloudservice.feignclient.WebFeignClient;
+import feign.Logger;
+import feign.slf4j.Slf4jLogger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.openfeign.FeignClientProperties;
 import org.springframework.cloud.openfeign.support.SpringMvcContract;
@@ -30,6 +32,8 @@ public class CloudServiceFeignBuilder {
     @Bean
     public UserFeignClient buildUserFeignClient(Client client) {
         return HystrixFeign.builder().client(client)
+                .logger(new Slf4jLogger())
+                .logLevel(Logger.Level.FULL)
                 .contract(new SpringMvcContract())
                 .requestInterceptor(new BasicAuthRequestInterceptor("user", "user"))
                 .target(UserFeignClient.class, serviceURL + "/api/user", new UserFeignClientFallBack());
@@ -38,6 +42,8 @@ public class CloudServiceFeignBuilder {
     @Bean
     public WebFeignClient buildWebFeignClient(Client client) {
         return HystrixFeign.builder().client(client)
+                .logger(new Slf4jLogger())
+                .logLevel(Logger.Level.FULL)
                 .contract(new SpringMvcContract())
                 .requestInterceptor(new BasicAuthRequestInterceptor("user", "user"))
                 .target(WebFeignClient.class, serviceURL + "/api/web", new WebFeignClientFallBack());

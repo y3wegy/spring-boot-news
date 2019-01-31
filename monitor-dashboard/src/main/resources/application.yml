@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: Cloudturbine
+server:
+  port: 9065
+turbine:
+  aggregator:
+    clusterConfig: default
+  appConfig: CloudWeb
+  clusterNameExpression: new String("default")
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    appname: Cloudturbine
+    metadata-map:
+      Zone: HangZhou
+  client:
+    serviceUrl:
+      HangZhou: http://y3wegy:12345@${eureka.instance.hostname}:9000/eureka/,http://y3wegy:12345@${eureka.instance.hostname}:9001/eureka/
+      BengBu: http://y3wegy:12345@${eureka.instance.hostname}:9002/eureka/,http://y3wegy:12345@${eureka.instance.hostname}:9003/eureka/
+    prefer-same-zone-eureka: true
+    availability-zones:
+      China: HangZhou,BengBu
+    region: China
+  # HTTP ENCODINGe

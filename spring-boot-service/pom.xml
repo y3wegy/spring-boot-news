@@ -11,7 +11,7 @@
 
     <artifactId>spring-boot-service</artifactId>
     <properties>
-        <start-class>com.y3wegy.CloudServiceApplication</start-class>
+        <start-class>com.y3wegy.web.provider.CloudServiceApplication</start-class>
         <docker.image.prefix>SpringBoot</docker.image.prefix>
     </properties>
 
