@@ -1,16 +1,14 @@
 package com.y3wegy.base.web.bean.web;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.Entity;
-
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.util.CollectionUtils;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.*;
 import com.y3wegy.base.tools.JackSonHelper;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.util.CollectionUtils;
+
+import javax.persistence.Entity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author y3wegy
@@ -132,16 +130,17 @@ public class MenuDto implements Comparable<MenuDto> {
     public static final String LABEL_DISPLAY_NAME = "displayName";
     public static final String LABEL_ORDER = "order";
     public static final String LABEL_DISABLED = "disabled";
-    public static final String LABEL_TYPE = "type";
-    public static final String LABEL_CHILD = "child";
+    public static final String LABEL_TYPE = "menuType";
+    public static final String LABEL_CHILD = "childMenuList";
 
     /**
      * -------------------------------------------------------------
-     * @author     @date        @comment
+     *
+     * @return
+     * @author @date        @comment
      * Chen, Rui   1/30/2019     init version
      * -------------------------------------------------------------
      * convert POJO to json node
-     * @return
      */
     public ObjectNode toJson() {
         ObjectMapper objectMapper = JackSonHelper.getObjectMapper();

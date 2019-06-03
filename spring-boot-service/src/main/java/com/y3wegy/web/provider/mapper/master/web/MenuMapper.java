@@ -12,11 +12,12 @@ import java.util.List;
 public interface MenuMapper {
     /**
      * -------------------------------------------------------------
-     * @author     @date        @comment
+     *
+     * @return List<MenuDto>
+     * @author @date        @comment
      * Chen, Rui   1/29/2019     init version
      * -------------------------------------------------------------
      * only get DB data, no link info . childMenuList is empty now
-     * @return List<MenuDto>
      */
     List<MenuDto> getSimpleMenuData();
 }

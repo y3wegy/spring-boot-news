@@ -1,7 +1,7 @@
 package com.y3wegy.web.config.database;
 
-import com.y3wegy.web.config.prop.MyBatisProp;
 import com.y3wegy.web.config.database.helper.MyBatiesConfigHelper;
+import com.y3wegy.web.config.prop.MyBatisProp;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;

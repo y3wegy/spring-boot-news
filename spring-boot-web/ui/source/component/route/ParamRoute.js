@@ -1,12 +1,8 @@
 import React from 'react';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom'
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 
-export default class ParamRoute extends Component{
-    render=()=>{
+export default class ParamRoute extends Component {
+    render = () => {
         return (
             <Router>
                 <div>
@@ -25,7 +21,7 @@ export default class ParamRoute extends Component{
     }
 }
 
-const Child = ({ match }) => (
+const Child = ({match}) => (
     <div>
         <h3>ID: {match.params.id}</h3>
     </div>

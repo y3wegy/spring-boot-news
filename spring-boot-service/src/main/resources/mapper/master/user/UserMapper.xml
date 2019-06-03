@@ -13,7 +13,7 @@
     </resultMap>
 
     <select id="queryUserByUserName" resultMap="userResultMap" parameterType="java.lang.String">
-        select u.ID, u.USER_NAME, u.NICK_NAME, u.USER_SEX, u.PASSWORD,r.ROLE_NAME
+        select u.ID, u.USER_NAME, u.NICK_NAME, u.USER_SEX, u.PASSWORD, r.ROLE_NAME
         from USERS u
                  left join USER_ROLES ur ON u.ID = ur.USER_ID
                  JOIN ROLE r ON ur.ROLE_ID = r.ID

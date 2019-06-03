@@ -1,14 +1,13 @@
 package com.y3wegy.web.provider.service.web.impl;
 
-import java.util.*;
-
+import com.y3wegy.base.web.bean.web.MenuDto;
+import com.y3wegy.web.provider.mapper.master.web.MenuMapper;
 import com.y3wegy.web.provider.service.web.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import com.y3wegy.base.web.bean.web.MenuDto;
-import com.y3wegy.web.provider.mapper.master.web.MenuMapper;
+import java.util.*;
 
 /**
  * @author y3wegy
@@ -26,13 +25,14 @@ public class MenuServiceImpl implements MenuService {
     }
 
     /**
-     *-------------------------------------------------------------
-     * @author     @date        @comment
+     * -------------------------------------------------------------
+     *
+     * @param simpleMenuList
+     * @return
+     * @author @date        @comment
      * Chen, Rui   1/30/2019     init version
      * -------------------------------------------------------------
      * link parent and child menu list
-     * @param simpleMenuList
-     * @return
      */
     public List<MenuDto> classifyMenu(List<MenuDto> simpleMenuList) {
         Map<String, TreeSet<MenuDto>> parentChildMap = new HashMap<>(1);

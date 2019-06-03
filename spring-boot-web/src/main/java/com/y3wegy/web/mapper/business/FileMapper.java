@@ -11,29 +11,32 @@ public interface FileMapper {
 
     /**
      * -------------------------------------------------------------
-     * @author     @date        @comment
+     *
+     * @param fileDto
+     * @author @date        @comment
      * Chen, Rui   1/14/2019     init version
      * -------------------------------------------------------------
-     * @param fileDto
      */
     void save(FileDto fileDto);
 
     /**
      * -------------------------------------------------------------
-     * @author     @date        @comment
-     * Chen, Rui   1/14/2019     init version
-     * -------------------------------------------------------------
+     *
      * @param fileId
      * @return
+     * @author @date        @comment
+     * Chen, Rui   1/14/2019     init version
+     * -------------------------------------------------------------
      */
     byte[] query(String fileId);
 
     /**
      * -------------------------------------------------------------
-     * @author     @date        @comment
+     *
+     * @param fileId
+     * @author @date        @comment
      * Chen, Rui   1/14/2019     init version
      * -------------------------------------------------------------
-     * @param fileId
      */
     void delete(String fileId);
 }

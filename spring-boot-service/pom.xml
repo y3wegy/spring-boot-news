@@ -199,9 +199,10 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <skip>true</skip>
                     <repository>${docker.image.prefix}/${project.artifactId}</repository>
                     <tag>${project.version}</tag>
-                    <contextDirectory>/src/main/resources/docker/Dockerfile</contextDirectory>
+                    <contextDirectory>src/main/resources/docker/Dockerfile</contextDirectory>
                     <buildArgs>
                         <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>

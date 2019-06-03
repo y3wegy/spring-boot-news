@@ -1,9 +1,8 @@
 package com.y3wegy.web.rpc.cloudservice.fallback;
 
-import com.y3wegy.web.rpc.cloudservice.feignclient.UserFeignClient;
-
-import com.y3wegy.base.web.bean.web.ResponseJson;
 import com.y3wegy.base.web.bean.user.SecurityUser;
+import com.y3wegy.base.web.bean.web.ResponseJson;
+import com.y3wegy.web.rpc.cloudservice.feignclient.UserFeignClient;
 
 /**
  * @author y3wegy

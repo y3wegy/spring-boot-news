@@ -15,22 +15,24 @@ public interface UserMapper {
 
     /**
      * -------------------------------------------------------------
-     * @author      @date        @comment
-     * y3wegy   11/22/2018     init version
-     * -------------------------------------------------------------
+     *
      * @param userName
      * @return
+     * @author @date        @comment
+     * y3wegy   11/22/2018     init version
+     * -------------------------------------------------------------
      */
     List<SecurityUser> queryUserByUserName(@Param("userName") String userName);
 
 
     /**
      * -------------------------------------------------------------
-     * @author     @date        @comment
-     * y3wegy   11/22/2018     init version
-     * -------------------------------------------------------------
+     *
      * @param userName
      * @return
+     * @author @date        @comment
+     * y3wegy   11/22/2018     init version
+     * -------------------------------------------------------------
      */
     @Select("select r.ROLE_NAME from USERS u left join USER_ROLES ur ON u.ID = ur.USER_ID JOIN ROLE r ON ur.ROLE_ID = r.ID AND  u.USER_NAME = #{userName}")
     @Results({
@@ -40,8 +42,9 @@ public interface UserMapper {
 
     /**
      * -------------------------------------------------------------
+     *
      * @param user
-     * @author      @date        @comment
+     * @author @date        @comment
      * y3wegy   11/22/2018     init version
      * -------------------------------------------------------------
      */
@@ -50,20 +53,22 @@ public interface UserMapper {
 
     /**
      * -------------------------------------------------------------
-     * @author      @date        @comment
+     *
+     * @param user
+     * @author @date        @comment
      * y3wegy   11/22/2018     init version
      * -------------------------------------------------------------
-     * @param user
      */
     @Update("UPDATE USERS SET NICK_NAME =#{nickName} WHERE ID =#{id}")
     void update(SecurityUser user);
 
     /**
      * -------------------------------------------------------------
-     * @author      @date        @comment
+     *
+     * @param id
+     * @author @date        @comment
      * y3wegy   11/22/2018     init version
      * -------------------------------------------------------------
-     * @param id
      */
     @Delete("DELETE FROM USERS WHERE ID =#{id}")
     void delete(String id);

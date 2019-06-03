@@ -1,9 +1,9 @@
 package com.y3wegy.web.mapper.master;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.HashSet;
 import java.util.Set;
-
-import org.springframework.stereotype.Repository;
 
 /**
  * @author y3wegy

@@ -1,11 +1,10 @@
 package com.y3wegy.web.provider.config.database.helper;
 
+import com.y3wegy.web.provider.config.prop.MyBatisProp;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
-
-import com.y3wegy.web.provider.config.prop.MyBatisProp;
 
 /**
  * @author y3wegy

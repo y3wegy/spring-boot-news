@@ -3,7 +3,7 @@ import {Redirect, withRouter} from 'react-router-dom';
 
 export default class login extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {redirectToReferrer: false};
     }

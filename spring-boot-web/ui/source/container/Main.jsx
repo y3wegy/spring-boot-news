@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import "@babel/polyfill";
-import {message, Popconfirm, Button} from 'antd';
-import UploadFile from './upload/UploadFile';
-import Logo from './logo.svg';
-import './App.css';
+import {Button, message, Popconfirm} from 'antd';
+import UploadFile from '../component/business/upload/UploadFile';
+import Logo from '../resources/logo.svg';
+import '../css/App.css';
 
 export default class Main extends Component {
 
@@ -54,10 +54,10 @@ export default class Main extends Component {
                 <h1 className="App-title">Welcome to React</h1>
                 <p className="App-intro">{JSON.stringify(this.state.response)}</p>
                 <Popconfirm title="Welcome" okText="test" autoAdjustOverflow={true}>
-              <Button>Delete</Button>
-            </Popconfirm>
-              <br/>
-              <UploadFile/>
+                    <Button>Delete</Button>
+                </Popconfirm>
+                <br/>
+                <UploadFile/>
             </div>
         );
     }

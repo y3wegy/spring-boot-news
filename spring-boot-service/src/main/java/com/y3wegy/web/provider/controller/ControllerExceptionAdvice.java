@@ -20,12 +20,13 @@ public class ControllerExceptionAdvice {
 
     /**
      * -------------------------------------------------------------
-     * @author      @date        @comment
-     * y3wegy   11/12/2018     fix unauthorizedUrl in application.yml not work issue
-     * -------------------------------------------------------------
+     *
      * @param req
      * @param ex
      * @return
+     * @author @date        @comment
+     * y3wegy   11/12/2018     fix unauthorizedUrl in application.yml not work issue
+     * -------------------------------------------------------------
      */
     @ExceptionHandler(ServiceExeption.class)
     public String handleError(HttpServletRequest req, Exception ex) throws ServiceExeption {

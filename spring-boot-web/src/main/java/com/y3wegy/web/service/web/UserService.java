@@ -1,7 +1,7 @@
 package com.y3wegy.web.service.web;
 
-import com.y3wegy.base.web.bean.web.ResponseJson;
 import com.y3wegy.base.web.bean.user.SecurityUser;
+import com.y3wegy.base.web.bean.web.ResponseJson;
 
 /**
  * @author y3wegy
@@ -9,20 +9,22 @@ import com.y3wegy.base.web.bean.user.SecurityUser;
 public interface UserService {
     /**
      * -------------------------------------------------------------
-     * @author     @date        @comment
-     * Chen, Rui   1/29/2019     init version
-     * -------------------------------------------------------------
+     *
      * @param securityUserBean
      * @return
+     * @author @date        @comment
+     * Chen, Rui   1/29/2019     init version
+     * -------------------------------------------------------------
      */
     ResponseJson login(SecurityUser securityUserBean);
 
     /**
      * -------------------------------------------------------------
-     * @author     @date        @comment
+     *
+     * @return
+     * @author @date        @comment
      * Chen, Rui   1/29/2019     init version
      * -------------------------------------------------------------
-     * @return
      */
     void logOut();
 }

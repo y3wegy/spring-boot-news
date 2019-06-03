@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
-import RouteExample from './route/RouteExample';
+import RouteExample from '../component/route/RouteExample';
 
 export default class MixIndex extends Component {
 

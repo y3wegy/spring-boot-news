@@ -31,8 +31,9 @@ public class Index {
     @ResponseBody
     public String hello(@RequestParam(value = "name", required = false) String name, @RequestBody @Nullable String request) throws ServiceExeption {
         logger.info(String.format("hello controller %s", name));
-        Map<String,Object> param = JackSonHelper.jsonStr2Obj(request, new TypeReference<HashMap>(){});
-        param.put("name",name);
+        Map<String, Object> param = JackSonHelper.jsonStr2Obj(request, new TypeReference<HashMap>() {
+        });
+        param.put("name", name);
 
         return JackSonHelper.obj2JsonStr(new ResponseJson().data(param));
     }

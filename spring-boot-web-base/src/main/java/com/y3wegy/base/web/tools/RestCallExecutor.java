@@ -40,16 +40,17 @@ public class RestCallExecutor {
 
     /**
      * -------------------------------------------------------------
-     * @throws ServiceExeption
-     * @author    @date        @comment
-     * y3wegy   1/4/2019     init version
-     * -------------------------------------------------------------
+     *
      * @param restTemplate
      * @param serviceURL
      * @param postBody
      * @param resultType
      * @param <T>
      * @return T
+     * @throws ServiceExeption
+     * @author @date        @comment
+     * y3wegy   1/4/2019     init version
+     * -------------------------------------------------------------
      */
     public static <T> T postForObject(RestTemplate restTemplate, String serviceURL, Object postBody, TypeReference<T> resultType) throws ServiceExeption {
         ResponseJson responseJson = post(restTemplate, serviceURL, postBody);
@@ -62,14 +63,15 @@ public class RestCallExecutor {
 
     /**
      * -------------------------------------------------------------
-     * @author     @date        @comment
-     * y3wegy   1/4/2019     init version
-     * -------------------------------------------------------------
+     *
      * @param restTemplate
      * @param serviceURL
      * @param postBody
      * @return ResponseJson
      * simple postForObject json and return ResponseJson
+     * @author @date        @comment
+     * y3wegy   1/4/2019     init version
+     * -------------------------------------------------------------
      */
     public static ResponseJson post(RestTemplate restTemplate, String serviceURL, Object postBody) {
         HttpHeaders headers = new HttpHeaders();
@@ -82,12 +84,13 @@ public class RestCallExecutor {
 
     /**
      * -------------------------------------------------------------
-     * @author @date        @comment
-     * Chen, Rui   1/4/2019     init version
-     * -------------------------------------------------------------
+     *
      * @param restTemplate
      * @param serviceURL
      * @return List
+     * @author @date        @comment
+     * Chen, Rui   1/4/2019     init version
+     * -------------------------------------------------------------
      */
     public static <T> List<T> getForList(RestTemplate restTemplate, String serviceURL) throws ServiceExeption {
         return getForObject(restTemplate, serviceURL, new TypeReference<List<T>>() {
@@ -96,13 +99,14 @@ public class RestCallExecutor {
 
     /**
      * -------------------------------------------------------------
-     * @author     @date        @comment
-     * y3wegy   1/4/2019     init version
-     * -------------------------------------------------------------
+     *
      * @param restTemplate
      * @param serviceURL
      * @param resultType
      * @return T
+     * @author @date        @comment
+     * y3wegy   1/4/2019     init version
+     * -------------------------------------------------------------
      */
     public static <T> T getForObject(RestTemplate restTemplate, String serviceURL, TypeReference<T> resultType) throws ServiceExeption {
         ResponseJson responseJson = get(restTemplate, serviceURL);
@@ -111,12 +115,13 @@ public class RestCallExecutor {
 
     /**
      * -------------------------------------------------------------
-     * @author    @date        @comment
-     * y3wegy   1/4/2019     init version
-     * -------------------------------------------------------------
+     *
      * @param restTemplate
      * @param serviceURL
      * @return ResponseJson
+     * @author @date        @comment
+     * y3wegy   1/4/2019     init version
+     * -------------------------------------------------------------
      */
     public static ResponseJson get(RestTemplate restTemplate, String serviceURL) {
         return restTemplate.getForObject(serviceURL, ResponseJson.class);

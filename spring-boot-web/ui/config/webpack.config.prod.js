@@ -6,7 +6,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
 
-
 const common = require('./webpack.common.js');
 
 const ROOT_DIR = path.resolve(__dirname, '../');

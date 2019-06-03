@@ -32,7 +32,7 @@ module.exports = merge(common, {
     },
     output: {
         path: DIST_DIR,
-        publicPath: '.'+DEV_SERVER_PUBLIC_PATH,
+        publicPath: '.' + DEV_SERVER_PUBLIC_PATH,
         filename: '[name].[hash:8].js',
         chunkFilename: '[name].[id].js'
     },
@@ -63,9 +63,9 @@ module.exports = merge(common, {
             context: ['/api'],
             target: 'http://localhost:9999',
         },
-          {
-            context: ['/druid'],
-            target: 'http://localhost:9999',
-          }]
+            {
+                context: ['/druid'],
+                target: 'http://localhost:9999',
+            }]
     }
 });

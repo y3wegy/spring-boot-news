@@ -1,6 +1,12 @@
 {
   "presets": [
-    ["@babel/env", {"modules": false}],//to fix regeneratorRuntime is not defined
+    [
+      "@babel/env",
+      {
+        "modules": false
+      }
+    ],
+    //to fix regeneratorRuntime is not defined
     "@babel/react"
     // 转译React组件为JS代码
   ],
@@ -13,10 +19,13 @@
     "@babel/plugin-proposal-export-namespace-from",
     "@babel/plugin-proposal-numeric-separator",
     "@babel/plugin-proposal-throw-expressions",
-    ["import", {
-      "libraryName": "antd",
-      "style": true   // or 'css'
-    }]
-
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true
+        // or 'css'
+      }
+    ]
   ]
 }

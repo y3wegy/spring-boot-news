@@ -1,13 +1,12 @@
 package com.y3wegy.web.controller.api.news;
 
+import com.y3wegy.web.service.business.NewService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.y3wegy.web.service.business.NewService;
 
 @RequestMapping({"/News"})
 @Controller

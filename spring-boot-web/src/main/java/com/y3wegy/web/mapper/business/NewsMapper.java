@@ -14,11 +14,12 @@ public interface NewsMapper {
 
     /**
      * -------------------------------------------------------------
-     *  author       date        comment
-     *  Chen,y3wegy   6/14/2018   init version
-     *-------------------------------------------------------------
-     * @description list all News
+     * author       date        comment
+     * Chen,y3wegy   6/14/2018   init version
+     * -------------------------------------------------------------
+     *
      * @return List
+     * @description list all News
      */
     List<News> list();
 }

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
-import Login from './component/business/Login';
+import Login from './container/Login';
 
-import './component/business/App.css';
+import './css/App.css';
 
 const render = Component => {
     ReactDOM.render(
@@ -17,7 +17,7 @@ const render = Component => {
 render(Login);
 
 if (module.hot) {
-    module.hot.accept('./component/business/Login', () => {
+    module.hot.accept('./container/Login', () => {
         render(Login)
     });
 }

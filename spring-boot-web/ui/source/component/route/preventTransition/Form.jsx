@@ -8,7 +8,7 @@ export default class Form extends Component {
         this.state = {isBlocking: false};
     }
 
-    doSubmit =(event)=>{
+    doSubmit = (event) => {
         event.preventDefault();
         event.target.reset();
         this.setState({

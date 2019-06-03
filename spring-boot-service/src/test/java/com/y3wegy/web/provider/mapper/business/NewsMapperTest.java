@@ -1,7 +1,7 @@
 package com.y3wegy.web.provider.mapper.business;
 
-import com.y3wegy.web.provider.CloudServiceApplication;
 import com.y3wegy.base.web.bean.business.News;
+import com.y3wegy.web.provider.CloudServiceApplication;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;

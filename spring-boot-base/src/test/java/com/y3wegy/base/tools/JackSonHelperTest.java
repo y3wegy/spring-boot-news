@@ -1,12 +1,5 @@
 package com.y3wegy.base.tools;
 
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -15,6 +8,11 @@ import com.fasterxml.jackson.core.util.DefaultIndenter;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.y3wegy.base.ServiceExeption;
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.*;
 
 class JackSonHelperTest {
 
@@ -43,7 +41,7 @@ class JackSonHelperTest {
 
     @Test
     void testEmptyStr() {
-        logger.info(String.format("%"+3+"s",""));
+        logger.info(String.format("%" + 3 + "s", ""));
     }
 
     @Test
@@ -108,11 +106,16 @@ class JackSonHelperTest {
         User user = new User();
         user.setId("1");
         user.setPassword("2");
+        User child = new User();
+        child.setId("2");
+        child.setPassword("QQWQ");
+        user.addChild(child);
         List<User> userList = new ArrayList<>(1);
         userList.add(user);
 
         String jsonStr = JackSonHelper.obj2JsonStr(userList);
-        List<User> n = JackSonHelper.jsonStr2Obj(jsonStr, new TypeReference<List<User>>() {});
+        List<User> n = JackSonHelper.jsonStr2Obj(jsonStr, new TypeReference<List<User>>() {
+        });
         logger.info(String.valueOf(n.size()));
     }
 
@@ -120,6 +123,8 @@ class JackSonHelperTest {
         private String id;
         @JsonIgnore
         private String password;
+
+        final List<User> child = new ArrayList<>(1);
 
         public String getId() {
             return id;
@@ -135,6 +140,14 @@ class JackSonHelperTest {
 
         public void setPassword(String password) {
             this.password = password;
+        }
+
+        public List<User> getChild() {
+            return child;
+        }
+
+        public void addChild(User child) {
+            this.child.add(child);
         }
     }
 }

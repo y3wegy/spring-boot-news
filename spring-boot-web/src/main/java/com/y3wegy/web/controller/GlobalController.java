@@ -20,6 +20,7 @@ import java.util.Map;
 
 /**
  * /**
+ *
  * @author y3wegy
  * @create 6/14/2018
  * @description
@@ -43,7 +44,7 @@ public class GlobalController {
 
     @RequestMapping("version")
     public String version() throws ServiceExeption {
-        ResponseJson responseJson =  RestCallExecutor.get(restTemplate,serviceURL + "/version");
+        ResponseJson responseJson = RestCallExecutor.get(restTemplate, serviceURL + "/version");
         String jsonStr = JackSonHelper.obj2JsonStr(responseJson);
         logger.info(jsonStr);
         return jsonStr;

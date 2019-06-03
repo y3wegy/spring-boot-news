@@ -19,12 +19,11 @@ import javax.sql.DataSource;
 
 /**
  * @author y3wegy
- *
+ * <p>
  * Druid的DataResource配置类
  * 凡是被Spring管理的类，实现接口 EnvironmentAware 重写方法 setEnvironment 可以在工程启动时，
  * 获取到系统环境变量和application配置文件中的变量。 还有一种方式是采用注解的方式获取 @value("${变量的key值}")
- * @Value("${spring.datasource.initialSize}")
- * 获取application配置文件中的变量。 这里采用第一种要方便些
+ * @Value("${spring.datasource.initialSize}") 获取application配置文件中的变量。 这里采用第一种要方便些
  * Created by sun on 2017-1-20.
  */
 @Configuration

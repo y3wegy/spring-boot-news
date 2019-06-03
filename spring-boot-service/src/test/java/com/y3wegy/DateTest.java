@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;

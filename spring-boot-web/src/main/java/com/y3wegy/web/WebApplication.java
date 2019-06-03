@@ -1,8 +1,7 @@
 package com.y3wegy.web;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import com.alibaba.druid.support.http.StatViewServlet;
+import com.alibaba.druid.support.http.WebStatFilter;
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,17 +12,16 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-import com.alibaba.druid.support.http.StatViewServlet;
-import com.alibaba.druid.support.http.WebStatFilter;
+import java.util.HashMap;
+import java.util.Map;
 
 
 @SpringBootApplication
 @EnableDiscoveryClient  //not necessary in Eureka 2.0
-@EnableFeignClients
+//@EnableFeignClients
 @EnableHystrix
 @EnableCircuitBreaker
 @EnableHystrixDashboard
@@ -51,7 +49,7 @@ public class WebApplication {
     }
 
     @Bean
-    public ServletRegistrationBean getServlet(){
+    public ServletRegistrationBean getServlet() {
         HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
         ServletRegistrationBean registrationBean = new ServletRegistrationBean(streamServlet);
         //registrationBean.setLoadOnStartup(1);
@@ -79,7 +77,7 @@ public class WebApplication {
 
     @Bean
     @LoadBalanced
-    public RestTemplate createRestTemplate(){
+    public RestTemplate createRestTemplate() {
         return new RestTemplate();
     }
 }

@@ -12,10 +12,11 @@ public interface MenuService {
 
     /**
      * -------------------------------------------------------------
-     * @author     @date        @comment
+     *
+     * @return
+     * @author @date        @comment
      * Chen, Rui   1/29/2019     init version
      * -------------------------------------------------------------
-     * @return
      */
     List<MenuDto> getMenuData();
 }

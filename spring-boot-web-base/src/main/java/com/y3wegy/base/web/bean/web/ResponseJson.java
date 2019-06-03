@@ -14,8 +14,8 @@ public class ResponseJson extends HashMap<String, Object> implements Serializabl
     private static final String KEY_DATA = "data";
 
     private static final String DEF_OP = "default";
-    private static final String DEF_SUCCESS = "true";
-    private static final String DEF_FAIL = "false";
+    private static final boolean DEF_SUCCESS = true;
+    private static final boolean DEF_FAIL = false;
     private static final String SUCC_CODE = "1";
     private static final String FAIL_CODE = "-1";
 

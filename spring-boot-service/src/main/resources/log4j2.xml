@@ -71,9 +71,9 @@
         </AsyncLogger>
 
         <!-- root logger 配置 -->
-        <AsyncRoot  level="info" includeLocation="true">
+        <AsyncRoot level="info" includeLocation="true">
             <AppenderRef ref="infoLog"/>
             <AppenderRef ref="Console"/>
-        </AsyncRoot >
+        </AsyncRoot>
     </Loggers>
 </Configuration>

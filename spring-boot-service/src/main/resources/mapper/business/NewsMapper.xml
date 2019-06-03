@@ -9,9 +9,10 @@
         <result column="LAST_UPDATE_DATE" property="lastUpdateDate"/>
         <result column="LAST_UPDATE_BY" property="lastUpdateBy"/>
     </resultMap>
-    
+
     <select id="list" resultMap="NewsMap">
-        SELECT ID,TOPIC,DETAIL,AUTHOR,LAST_UPDATE_DATE,LAST_UPDATE_BY FROM NEWS
+        SELECT ID, TOPIC, DETAIL, AUTHOR, LAST_UPDATE_DATE, LAST_UPDATE_BY
+        FROM NEWS
     </select>
 
 </mapper>

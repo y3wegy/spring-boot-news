@@ -1,8 +1,7 @@
 package com.y3wegy.web.rpc.cloudservice.fallback;
 
-import com.y3wegy.web.rpc.cloudservice.feignclient.WebFeignClient;
-
 import com.y3wegy.base.web.bean.web.ResponseJson;
+import com.y3wegy.web.rpc.cloudservice.feignclient.WebFeignClient;
 
 /**
  * @author y3wegy

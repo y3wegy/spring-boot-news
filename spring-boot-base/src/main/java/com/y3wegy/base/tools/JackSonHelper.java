@@ -1,7 +1,6 @@
 package com.y3wegy.base.tools;
 
 import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.core.util.DefaultIndenter;
@@ -20,7 +19,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.io.StringWriter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -62,50 +60,53 @@ public class JackSonHelper {
 
     /**
      * -------------------------------------------------------------
-     * @author     @date        @comment
-     * Chen, Rui   1/30/2019     init version
-     * -------------------------------------------------------------
-     * create json str with indent
+     *
      * @param obj
      * @param indentLength
      * @return
      * @throws ServiceExeption
+     * @author @date        @comment
+     * Chen, Rui   1/30/2019     init version
+     * -------------------------------------------------------------
+     * create json str with indent
      */
-    public static String obj2JsonStr(Object obj,int indentLength) throws ServiceExeption {
+    public static String obj2JsonStr(Object obj, int indentLength) throws ServiceExeption {
         ObjectMapper objectMapper = getObjectMapper();
         DefaultPrettyPrinter.Indenter indenter =
-                new DefaultIndenter(String.format("%"+indentLength+"s",""), DefaultIndenter.SYS_LF);
+                new DefaultIndenter(String.format("%" + indentLength + "s", ""), DefaultIndenter.SYS_LF);
         DefaultPrettyPrinter printer = new DefaultPrettyPrinter();
         printer.indentObjectsWith(indenter);
         printer.indentArraysWith(indenter);
         objectMapper.setDefaultPrettyPrinter(printer);
-        return obj2JsonStr(objectMapper,obj);
+        return obj2JsonStr(objectMapper, obj);
     }
 
     /**
      * -------------------------------------------------------------
-     * @author     @date        @comment
-     * Chen, Rui   1/30/2019     init version
-     * -------------------------------------------------------------
+     *
      * @param obj
      * @return
      * @throws ServiceExeption
+     * @author @date        @comment
+     * Chen, Rui   1/30/2019     init version
+     * -------------------------------------------------------------
      */
     public static String obj2JsonStr(Object obj) throws ServiceExeption {
-        return obj2JsonStr(getObjectMapper(),obj);
+        return obj2JsonStr(getObjectMapper(), obj);
     }
 
     /**
      * -------------------------------------------------------------
-     * @author     @date        @comment
-     * Chen, Rui   1/30/2019     init version
-     * -------------------------------------------------------------
+     *
      * @param objectMapper
      * @param obj
      * @return
      * @throws ServiceExeption
+     * @author @date        @comment
+     * Chen, Rui   1/30/2019     init version
+     * -------------------------------------------------------------
      */
-    public static String obj2JsonStr(ObjectMapper objectMapper,Object obj) throws ServiceExeption {
+    public static String obj2JsonStr(ObjectMapper objectMapper, Object obj) throws ServiceExeption {
         try {
             ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
             return objectWriter.writeValueAsString(obj);

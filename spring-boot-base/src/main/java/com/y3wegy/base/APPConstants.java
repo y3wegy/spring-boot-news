@@ -8,6 +8,7 @@ package com.y3wegy.base;
  * To change this template use File | Settings | File Templates.
  * Description:
  * Global constants
+ *
  * @author y3wegy
  */
 public interface APPConstants {
