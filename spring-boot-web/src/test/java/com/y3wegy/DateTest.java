@@ -28,6 +28,11 @@ public class DateTest {
     }
 
     @Test
+    public void test1(){
+        logger.info(String.valueOf(18&16));
+    }
+
+    @Test
     public void testFormat2() {
         DateFormat dateFormat = DateFormat.getDateTimeInstance(0, 0);
         DateFormat dateFormat1 = DateFormat.getDateTimeInstance(1, 1);
