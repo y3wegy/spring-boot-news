@@ -22,7 +22,7 @@ public class WebController {
     @Autowired
     private WebService webService;
 
-    @RequestMapping(path = "/siderMenu")
+    @RequestMapping(path = "/menu")
     public String getMenuData() throws ServiceExeption {
         List<MenuDto> menuDtoList = webService.getMenuData();
         ArrayNode menuArr = JackSonHelper.getObjectMapper().createArrayNode();

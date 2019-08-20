@@ -15,7 +15,7 @@
     </parent>
 
     <properties>
-        <start-class>com.y3wegy.web.WebApplication</start-class>
+        <start-class>com.y3wegy.web.CloudWebApplication</start-class>
         <docker.image.prefix>SpringBoot</docker.image.prefix>
     </properties>
 
@@ -228,6 +228,23 @@
                     </buildArgs>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resources-plugin.version}</version>
+                <configuration>
+                    <delimiters>
+                        <delimiter>@</delimiter>
+                    </delimiters>
+                    <useDefaultDelimiters>false</useDefaultDelimiters>
+                </configuration>
+            </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 </project>

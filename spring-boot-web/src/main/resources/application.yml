@@ -1,7 +1,7 @@
 # Server settings
 server:
-  port: 9999
-  address: localhost
+  port: 9201
+  #address: localhost
   #  servlet:
   #    context-path: /News
   tomcat:
@@ -34,7 +34,14 @@ shiro:
       domain: null
       path: null
       secure: false
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # * 在yaml 文件属于关键字，所以需要加引号
+  endpoint:
+    health:
+      show-details: ALWAYS
 
 # SPRING PROFILES
 spring:
@@ -53,12 +60,13 @@ eureka:
     hostname: localhost
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
     appname: CloudWeb
+    prefer-ip-address: true
     metadata-map:
       Zone: HangZhou
   client:
     serviceUrl:
-      HangZhou: http://y3wegy:12345@${eureka.instance.hostname}:9000/eureka/
-      BengBu: http://y3wegy:12345@${eureka.instance.hostname}:9001/eureka/
+      HangZhou: http://y3wegy:12345@${eureka.instance.hostname}:9000/eureka/,http://y3wegy:12345@${eureka.instance.hostname}:9001/eureka/
+      BengBu: http://y3wegy:12345@${eureka.instance.hostname}:9002/eureka/,http://y3wegy:12345@${eureka.instance.hostname}:9003/eureka/
     prefer-same-zone-eureka: true
     availability-zones:
       China: HangZhou,BengBu
@@ -69,8 +77,9 @@ eureka:
     encoding.enable: true
     encoding.force: true
   service:
-    name: CloudService
-    url: http://${eureka.service.name}
+    proxyServiceid: CloudGateWay
+    serviceId: CloudService
+    url: http://${eureka.service.proxyServiceid}/${eureka.service.serviceId}
 feign:
   hystrix:
     enabled: true
@@ -79,6 +88,10 @@ mybatis:
   typeAliasesPackage: com.rui.**.bean.**
   configLocation: classpath:/mybatis-config.xml
   mapperLocations: classpath:/mapper/**/*.xml
+info:
+  version: @project.version@
+  groupId: @project.groupId@
+  artifactId: @project.artifactId@
 
 ---
 # SPRING PROFILES
@@ -87,17 +100,17 @@ spring:
   datasource:
     master:
       name: master
-      url: jdbc:mysql://127.0.0.1:3306/y3wegy?useUnicode=true&characterEncoding=utf-8
-      username: root
-      password: root
-      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = hz4dw3224)(PORT = 1521))) (CONNECT_DATA = (SERVICE_NAME = O02DMHDEV) ))
+      username: dmh
+      password: dmh
+      driver-class-name: oracle.jdbc.driver.OracleDriver
       type: com.alibaba.druid.pool.DruidDataSource
     business:
       name: business
-      url: jdbc:mysql://127.0.0.1:3306/y3wegy?useUnicode=true&characterEncoding=utf-8
-      username: root
-      password: root
-      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = hz4dw3224)(PORT = 1521))) (CONNECT_DATA = (SERVICE_NAME = O02DMHDEV) ))
+      username: dmh
+      password: dmh
+      driver-class-name: oracle.jdbc.driver.OracleDriver
       type: com.alibaba.druid.pool.DruidDataSource
       #    url: jdbc:mysql://192.168.99.100:3306/rui?useUnicode=true&characterEncoding=utf-8
       #    username: root

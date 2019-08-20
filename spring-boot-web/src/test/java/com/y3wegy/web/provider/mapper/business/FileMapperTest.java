@@ -1,6 +1,6 @@
 package com.y3wegy.web.provider.mapper.business;
 
-import com.y3wegy.web.WebApplication;
+import com.y3wegy.web.CloudWebApplication;
 import com.y3wegy.web.bean.business.FileDto;
 import com.y3wegy.web.mapper.business.FileMapper;
 import org.junit.jupiter.api.Assertions;
@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = WebApplication.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest(classes = CloudWebApplication.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)
 class FileMapperTest {
 
     private static final Logger logger = LoggerFactory.getLogger(FileMapperTest.class);

@@ -61,11 +61,11 @@ module.exports = merge(common, {
         //https://webpack.js.org/configuration/dev-server/#devserver-proxy
         proxy: [{
             context: ['/api'],
-            target: 'http://localhost:9999',
+            target: 'http://localhost:9201',
         },
             {
                 context: ['/druid'],
-                target: 'http://localhost:9999',
+                target: 'http://localhost:9201',
             }]
     }
 });

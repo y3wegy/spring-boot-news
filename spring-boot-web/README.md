@@ -1,0 +1,1 @@
+启动项目，访问`http://localhost:9201/hystrix` , 打开的页面中输入地址 `http://localhost:9201/actuator/hystrix.stream` ，然后点击Monitor Stream，会跳转到监控页面。第一次进入可能没有数据，调用几次`http://localhost:9201/api/web/suderMenu` 后再刷新页面就有数据了

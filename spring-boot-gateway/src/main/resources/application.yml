@@ -1,0 +1,55 @@
+# See http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+server:
+  port: 9301
+  #address: localhost
+  tomcat:
+    access_log_enabled: true
+    max-connections: 800
+    error:
+      #    whitelabel:
+      #      enabled: false
+      path: /customError #default is /error
+    session-timeout: 60
+spring:
+  profiles:
+    active: DEV
+  application:
+    name: CloudGateWay
+  mvc:
+    view:
+      suffix: .html
+  output:
+    ansi:
+      enabled: detect
+zuul:
+  routes:
+    api-1:
+      path: /CloudService/**
+      serviceId: CloudService
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    appname: CloudGateWay
+    prefer-ip-address: true
+    metadata-map:
+      Zone: HangZhou
+  client:
+    service-url:
+      HangZhou: http://y3wegy:12345@${eureka.instance.hostname}:9000/eureka/,http://y3wegy:12345@${eureka.instance.hostname}:9001/eureka/
+      BengBu: http://y3wegy:12345@${eureka.instance.hostname}:9002/eureka/,http://y3wegy:12345@${eureka.instance.hostname}:9003/eureka/
+    prefer-same-zone-eureka: true
+    fetchRegistry: true
+    availability-zones:
+      China: HangZhou,BengBu
+    region: China
+    # HTTP ENCODING
+  http:
+    encoding:
+      charset: UTF-8
+      enable: true
+      force: true
+info:
+  version: @project.version@
+  groupId: @project.groupId@
+  artifactId: @project.artifactId@

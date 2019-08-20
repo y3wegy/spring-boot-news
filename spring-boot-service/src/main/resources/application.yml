@@ -1,6 +1,6 @@
 # Server settings
 server:
-  address: localhost
+  #address: localhost
   #  servlet:
   #    context-path: /News
   tomcat:
@@ -21,17 +21,17 @@ spring:
   datasource:
     master:
       name: master
-      url: jdbc:mysql://127.0.0.1:3306/y3wegy?useUnicode=true&characterEncoding=utf-8
-      username: root
-      password: root
-      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = hz4dw3224)(PORT = 1521))) (CONNECT_DATA = (SERVICE_NAME = O02DMHDEV) ))
+      username: dmh
+      password: dmh
+      driver-class-name: oracle.jdbc.driver.OracleDriver
       type: com.alibaba.druid.pool.DruidDataSource
     business:
       name: business
-      url: jdbc:mysql://127.0.0.1:3307/y3wegy?useUnicode=true&characterEncoding=utf-8
-      username: root
-      password: root
-      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = hz4dw3224)(PORT = 1521))) (CONNECT_DATA = (SERVICE_NAME = O02DMHDEV) ))
+      username: dmh
+      password: dmh
+      driver-class-name: oracle.jdbc.driver.OracleDriver
       type: com.alibaba.druid.pool.DruidDataSource
       #    url: jdbc:mysql://192.168.99.100:3306/rui?useUnicode=true&characterEncoding=utf-8
       #    username: root
@@ -74,6 +74,7 @@ eureka:
     appname: CloudService
     metadata-map:
       Zone: HangZhou
+    prefer-ip-address: true
   client:
     serviceUrl:
       HangZhou: http://y3wegy:12345@${eureka.instance.hostname}:9000/eureka/,http://y3wegy:12345@${eureka.instance.hostname}:9001/eureka/
@@ -98,29 +99,32 @@ mybatis:
 management:
   endpoints:
     web:
-      base-path: /actuator
       exposure:
-        include: "*"
+        include: "*"  # * 在yaml 文件属于关键字，所以需要加引号
   endpoint:
     health:
-      show-details: always
+      show-details: ALWAYS
+info:
+  version: @project.version@
+  groupId: @project.groupId@
+  artifactId: @project.artifactId@
 ---
 # SPRING PROFILES
 spring:
   profiles: HangZhou
 server:
-  port: 10100
-management:
-  server:
-    port: 10200
+  port: 9101
+#management:
+#  server:
+#    port: 9101
 service.customMsg: RUI1
 ---
 # SPRING PROFILES
 spring:
   profiles: HangZhou2
 server:
-  port: 10101
-management:
-  server:
-    port: 10201
+  port: 9102
+#management:
+#  server:
+#    port: 9102
 service.customMsg: RUI2

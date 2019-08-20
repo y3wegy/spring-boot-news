@@ -32,7 +32,7 @@ public class GlobalController {
     @Value("${eureka.service.url}")
     private String serviceURL;
 
-    @Value("${eureka.service.name}")
+    @Value("${eureka.service.serviceId}")
     private String serviceName;
 
     @Autowired

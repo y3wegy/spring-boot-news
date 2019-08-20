@@ -1,0 +1,45 @@
+# Server settings
+spring:
+  profiles:
+    active: DEV
+  application:
+    name: CloudAdmin
+server:
+  port: 9501
+  #address: localhost
+  #  servlet:
+  #    context-path: /News
+  tomcat:
+    access_log_enabled: true
+    max-connections: 800
+  error:
+    #    whitelabel:
+    #      enabled: false
+    path: /customError #default is /error
+  session-timeout: 60
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # * 在yaml 文件属于关键字，所以需要加引号
+  endpoint:
+    health:
+      show-details: ALWAYS
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    appname: CloudAdmin
+#    lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
+#    lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）
+    prefer-ip-address: true
+    metadata-map:
+      Zone: HangZhou
+  client:
+    serviceUrl:
+      HangZhou: http://y3wegy:12345@${eureka.instance.hostname}:9000/eureka/,http://y3wegy:12345@${eureka.instance.hostname}:9001/eureka/
+      BengBu: http://y3wegy:12345@${eureka.instance.hostname}:9002/eureka/,http://y3wegy:12345@${eureka.instance.hostname}:9003/eureka/
+    prefer-same-zone-eureka: true
+    availability-zones:
+      China: HangZhou,BengBu
+    region: China
