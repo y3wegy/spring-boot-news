@@ -1,11 +1,25 @@
 import React, {Component} from 'react';
 import {Layout, Menu} from 'antd';
 import {NavLink} from 'react-router-dom';
+import {JsonAxiosRequest} from '../../commmon/HttpRequest';
+import Notification from '../../commmon/Notification';
 
 const {SubMenu, ItemGroup} = Menu;
 const {Sider} = Layout;
 
+const loadMenuTitle = 'Load Menu';
+
 export default class SimpleSiderNav extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      collapsed: false,
+      mode: 'inline',
+      menuData: [],
+    };
+  }
+
   onCollapse = (collapsed) => {
     console.log(collapsed);
     this.setState({
@@ -45,39 +59,14 @@ export default class SimpleSiderNav extends Component {
       disabled: menuConfig.disabled,
     };
     return (<Menu.Item {...menuItemProp}>
-      <NavLink to={menuConfig.menuCd}>{menuConfig.displayName}</NavLink>
+      {/*<NavLink to={menuConfig.menuCd}>{menuConfig.displayName}</NavLink>*/}
+      {menuConfig.displayName}
     </Menu.Item>);
   };
-  /**
-   * menuData is array
-   * @param menuData
-   */
-  setDefaultOpenMenu = (menuData) => {
-    let openKeyPath = [];
-    //let defaultSelectKey;
-
-    if (menuData && menuData.length > 0) {
-      let currentMenuItem = menuData[0];
-      while (currentMenuItem.childMenuList !== undefined &&
-      currentMenuItem.childMenuList.length > 0) {
-        openKeyPath.push(currentMenuItem.menuCd);
-        currentMenuItem = currentMenuItem.childMenuList[0];
-      }
-      //defaultSelectKey = currentMenuItem.menuCd;
-    }
-    this.setState({openKeyPath});
-  };
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      collapsed: false,
-      mode: 'inline',
-    };
-  }
 
   render() {
-    const {menuData, ...menuProps} = this.props.siderProps;
+    const {...menuProps} = this.props.siderProps;
+    const {menuData} = this.state;
     if (menuData.length == 0) {
       return (<div></div>);
     }
@@ -101,4 +90,34 @@ export default class SimpleSiderNav extends Component {
         </Sider>
     );
   }
+
+  componentDidMount = () => {
+    JsonAxiosRequest.post('/api/web/menu').
+        then(response => response.data).
+        then(responseJson => {
+          if (responseJson.isSuccess) {
+            const menuData = JSON.parse(responseJson.data);
+            this.setState({menuData});
+            Notification.success({
+              message: loadMenuTitle,
+              description:
+                  'load menu Data successfully',
+            });
+          } else {
+            Notification.error({
+              message: loadMenuTitle,
+              description:
+                  'load menu Data failed',
+            });
+          }
+        }).
+        catch(error => {
+          console.error(error);
+          Notification.error({
+            message: loadMenuTitle,
+            description:
+                error.response.statusText,
+          });
+        });
+  };
 }

@@ -9,6 +9,15 @@ const FormItem = Form.Item;
 
 class LoginPage extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',  // 当前输入的用户名
+      password: '',  // 当前输入的密码
+      requesting: false, // 当前是否正在请求服务端接口
+    };
+  }
+
   handleUsernameInput = (e) => {
     this.setState({username: e.target.value});
   };
@@ -38,39 +47,6 @@ class LoginPage extends Component {
       }
     });
   };
-  componentDidMount = () => {
-    DefaultAxiosRequest.request({
-      url: '/api/hello',
-      method: 'post',
-      params: {
-        'name': 'y3wegy',
-      },
-      data: {
-        'Age': '28',
-      },
-    }).then(response => response.data).
-        then(responseJson => {
-          if (responseJson.isSuccess == true) {
-            window.location.href = 'main.html';
-          } else {
-            Notification.error({
-              message: 'Login failed',
-              description: responseJson.data,
-            });
-          }
-        }).
-        catch(error => console.error('login failed.' + error));
-    ;
-  };
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',  // 当前输入的用户名
-      password: '',  // 当前输入的密码
-      requesting: false, // 当前是否正在请求服务端接口
-    };
-  }
 
   render() {
     const {getFieldDecorator} = this.props.form;
@@ -124,6 +100,31 @@ class LoginPage extends Component {
     );
 
   }
+
+  componentDidMount = () => {
+    DefaultAxiosRequest.request({
+      url: '/api/hello',
+      method: 'post',
+      params: {
+        'name': 'y3wegy',
+      },
+      data: {
+        'Age': '28',
+      },
+    }).then(response => response.data).
+        then(responseJson => {
+          if (responseJson.isSuccess == true) {
+            window.location.href = 'main.html';
+          } else {
+            Notification.error({
+              message: 'Login failed',
+              description: responseJson.data,
+            });
+          }
+        }).
+        catch(error => console.error('login failed.' + error));
+    ;
+  };
 }
 
 export default Form.create()(LoginPage);

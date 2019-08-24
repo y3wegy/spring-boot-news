@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import {Breadcrumb, Layout} from 'antd';
 import SimpleHeader from '../component/menu/SimpleHeader';
 import SimpleSiderNav from '../component/menu/SimpleSiderNav';
-import {JsonAxiosRequest} from '../commmon/HttpRequest';
 import DefaultContent from '../component/page/DefaultContent.jsx';
-import Notification from '../commmon/Notification';
 
 const {Content} = Layout;
 
@@ -15,8 +13,7 @@ export default class MainPage extends Component {
     this.state = {
       collapsed: false,
       mode: 'inline',
-      keyPath: [],
-      menuData: [],
+      keyPath: []
     };
   }
 
@@ -33,7 +30,6 @@ export default class MainPage extends Component {
   };
 
   render() {
-    const {menuData} = this.state;
     const headerProps = {
       onOpenChange: this.onMenuOpenChange,
       onSelect: this.onMenuItemSelect,
@@ -41,7 +37,6 @@ export default class MainPage extends Component {
 
     const siderNavProps = {
       onClick: this.onMenuClick,
-      menuData: menuData,
     };
     return (
         <Layout>
@@ -65,27 +60,4 @@ export default class MainPage extends Component {
           </Layout>
         </Layout>);
   }
-
-  componentDidMount = () => {
-    JsonAxiosRequest.post('/api/web/menu').
-        then(response => response.data).
-        then(responseJson => {
-          if (responseJson.isSuccess) {
-            const menuData = JSON.parse(responseJson.data);
-            this.setState({menuData});
-            Notification.success({
-              message: 'Load Menu',
-              description:
-                  'load menu Data successfully',
-            });
-          } else {
-            Notification.error({
-              message: 'Load Menu',
-              description:
-                  'load menu Data failed',
-            });
-          }
-        }).
-        catch(error => console.error(error));
-  };
 }
