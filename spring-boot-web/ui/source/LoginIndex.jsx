@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
-import Login from './container/LoginPage.jsx';
+import LoginPage from './container/LoginPage.jsx';
 
 import './css/App.css';
 
@@ -14,10 +14,10 @@ const render = Component => {
   );
 };
 
-render(Login);
+render(LoginPage);
 
 if (module.hot) {
   module.hot.accept('./container/LoginPage', () => {
-    render(Login);
+    render(LoginPage);
   });
 }

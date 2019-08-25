@@ -38,7 +38,7 @@ class LoginPage extends Component {
                 window.location.href = 'main.html';
               } else {
                 Notification.error({
-                  message: 'Login failed',
+                  message: 'LoginPage failed',
                   description: 'userName or password incorrect',
                 });
               }
@@ -117,7 +117,7 @@ class LoginPage extends Component {
             window.location.href = 'main.html';
           } else {
             Notification.error({
-              message: 'Login failed',
+              message: 'LoginPage failed',
               description: responseJson.data,
             });
           }
