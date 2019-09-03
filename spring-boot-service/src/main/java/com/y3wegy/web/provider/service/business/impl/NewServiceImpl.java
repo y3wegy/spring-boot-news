@@ -1,12 +1,13 @@
 package com.y3wegy.web.provider.service.business.impl;
 
-import com.y3wegy.base.web.bean.business.News;
-import com.y3wegy.web.provider.mapper.business.NewsMapper;
-import com.y3wegy.web.provider.service.business.NewService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.y3wegy.base.web.bean.business.News;
+import com.y3wegy.web.provider.mapper.business.NewsMapper;
+import com.y3wegy.web.provider.service.business.NewService;
 
 /**
  * @author y3wegy

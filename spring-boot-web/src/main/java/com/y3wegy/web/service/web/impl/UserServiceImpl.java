@@ -1,8 +1,5 @@
 package com.y3wegy.web.service.web.impl;
 
-import com.y3wegy.base.web.bean.user.SecurityUser;
-import com.y3wegy.base.web.bean.web.ResponseJson;
-import com.y3wegy.web.service.web.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -12,6 +9,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+
+import com.y3wegy.base.web.bean.user.SecurityUser;
+import com.y3wegy.base.web.bean.web.ResponseJson;
+import com.y3wegy.web.service.web.UserService;
 
 /**
  * @author y3wegy

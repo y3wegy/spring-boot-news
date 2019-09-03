@@ -30,8 +30,8 @@ eureka:
     hostname: localhost
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
     appname: CloudAdmin
-#    lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
-#    lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）
+    #    lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
+    #    lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）
     prefer-ip-address: true
     metadata-map:
       Zone: HangZhou

@@ -1,9 +1,8 @@
 package com.y3wegy.web.provider.service.web;
 
+import java.util.List;
 
 import com.y3wegy.base.web.bean.web.MenuDto;
-
-import java.util.List;
 
 /**
  * @author y3wegy

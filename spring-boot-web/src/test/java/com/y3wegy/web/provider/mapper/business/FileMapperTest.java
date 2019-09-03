@@ -1,8 +1,5 @@
 package com.y3wegy.web.provider.mapper.business;
 
-import com.y3wegy.web.CloudWebApplication;
-import com.y3wegy.web.bean.business.FileDto;
-import com.y3wegy.web.mapper.business.FileMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,6 +8,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.y3wegy.web.CloudWebApplication;
+import com.y3wegy.web.bean.business.FileDto;
+import com.y3wegy.web.mapper.business.FileMapper;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = CloudWebApplication.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)

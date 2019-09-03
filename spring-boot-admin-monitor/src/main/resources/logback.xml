@@ -1,5 +1,5 @@
 <configuration>
-    <property name="LOG_FILE_LOCATION" value="WEB-INF/logs" />
+    <property name="LOG_FILE_LOCATION" value="WEB-INF/logs"/>
     <property name="CONSOLE_LOG_PATTERN"
               value="%red(%date{yyyy-MM-dd HH:mm:ss}) %highlight(%-5level) %red([%thread]) %boldMagenta(%logger{50}) %cyan(%msg%n)"/>
     <property name="FILE_LOG_PATTERN" value="%d{HH:mm:ss.SSS}[%-5level][%thread]%logger{36} - %msg%n"/>
@@ -65,11 +65,11 @@
         </triggeringPolicy>
     </appender>
 
-    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" />
-    <logger name="org.hibernate.type.descriptor.sql.BasicExtractor" level="DEBUG" />
-    <logger name="org.hibernate.SQL" level="DEBUG" />
-    <logger name="org.hibernate.engine.QueryParameters" level="DEBUG" />
-    <logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG" />
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
+    <logger name="org.hibernate.type.descriptor.sql.BasicExtractor" level="DEBUG"/>
+    <logger name="org.hibernate.SQL" level="DEBUG"/>
+    <logger name="org.hibernate.engine.QueryParameters" level="DEBUG"/>
+    <logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG"/>
 
     <!--myibatis log configure-->
     <logger name="com.apache.ibatis" level="TRACE"/>

@@ -1,17 +1,18 @@
 package com.y3wegy.web.provider.service.web.impl;
 
-import com.y3wegy.base.web.bean.user.SecurityUser;
-import com.y3wegy.base.web.bean.user.User;
-import com.y3wegy.base.web.bean.user.UserRole;
-import com.y3wegy.web.provider.mapper.master.user.UserMapper;
-import com.y3wegy.web.provider.service.web.UserService;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.y3wegy.base.web.bean.user.SecurityUser;
+import com.y3wegy.base.web.bean.user.User;
+import com.y3wegy.base.web.bean.user.UserRole;
+import com.y3wegy.web.provider.mapper.master.user.UserMapper;
+import com.y3wegy.web.provider.service.web.UserService;
 
 /**
  * @author y3wegy

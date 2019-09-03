@@ -1,8 +1,8 @@
 package com.y3wegy.base.web.bean.business;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-
 import javax.persistence.Entity;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * @author y3wegy

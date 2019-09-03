@@ -1,9 +1,10 @@
 package com.y3wegy.web.provider.mapper.master.user;
 
-import com.y3wegy.base.web.bean.user.SecurityUser;
-import com.y3wegy.base.web.bean.user.UserRole;
-import com.y3wegy.base.web.bean.user.UserSex;
-import com.y3wegy.web.provider.CloudServiceApplication;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Arrays;
+import java.util.List;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,10 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.util.Arrays;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import com.y3wegy.base.web.bean.user.SecurityUser;
+import com.y3wegy.base.web.bean.user.UserRole;
+import com.y3wegy.base.web.bean.user.UserSex;
+import com.y3wegy.web.provider.CloudServiceApplication;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = CloudServiceApplication.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)

@@ -1,11 +1,12 @@
 package com.y3wegy.web.provider.mapper.master.user;
 
-import com.y3wegy.base.web.bean.user.SecurityUser;
-import com.y3wegy.base.web.bean.user.UserRole;
+import java.util.List;
+
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import com.y3wegy.base.web.bean.user.SecurityUser;
+import com.y3wegy.base.web.bean.user.UserRole;
 
 /**
  * @author y3wegy
@@ -23,7 +24,6 @@ public interface UserMapper {
      * -------------------------------------------------------------
      */
     List<SecurityUser> queryUserByUserName(@Param("userName") String userName);
-
 
     /**
      * -------------------------------------------------------------

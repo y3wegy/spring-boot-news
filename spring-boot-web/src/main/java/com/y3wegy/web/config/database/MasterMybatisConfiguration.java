@@ -1,7 +1,8 @@
 package com.y3wegy.web.config.database;
 
-import com.y3wegy.web.config.database.helper.MyBatiesConfigHelper;
-import com.y3wegy.web.config.prop.MyBatisProp;
+import javax.persistence.EntityManager;
+import javax.sql.DataSource;
+
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -15,8 +16,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.persistence.EntityManager;
-import javax.sql.DataSource;
+import com.y3wegy.web.config.database.helper.MyBatiesConfigHelper;
+import com.y3wegy.web.config.prop.MyBatisProp;
 
 /**
  * @author y3wegy
@@ -30,7 +31,7 @@ public class MasterMybatisConfiguration {
     @Bean(name = "masterSqlSessionFactory")
     @Primary
     public SqlSessionFactory buildMasterSqlSessionFactory(@Qualifier("masterDataSource") DataSource druidDataSource,
-                                                          MyBatisProp myBatisProp) throws Exception {
+            MyBatisProp myBatisProp) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(druidDataSource);
         return MyBatiesConfigHelper.config(sqlSessionFactoryBean, myBatisProp);

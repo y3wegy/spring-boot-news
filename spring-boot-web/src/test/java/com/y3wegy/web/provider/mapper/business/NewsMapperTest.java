@@ -1,8 +1,9 @@
 package com.y3wegy.web.provider.mapper.business;
 
-import com.y3wegy.base.web.bean.business.News;
-import com.y3wegy.web.CloudWebApplication;
-import com.y3wegy.web.mapper.business.NewsMapper;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
@@ -11,9 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import com.y3wegy.base.web.bean.business.News;
+import com.y3wegy.web.CloudWebApplication;
+import com.y3wegy.web.mapper.business.NewsMapper;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = CloudWebApplication.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)
@@ -29,8 +30,7 @@ public class NewsMapperTest {
         List<News> newsList = newsMapper.list();
         assertAll(
                 () -> assertNotNull(newsList),
-                () -> assertEquals("1", newsList.get(0).getId())
-        );
+                () -> assertEquals("1", newsList.get(0).getId()));
         logger.info(String.valueOf(newsList.get(0)));
     }
 }

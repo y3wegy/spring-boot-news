@@ -1,10 +1,8 @@
 package com.y3wegy.web.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.y3wegy.base.ServiceExeption;
-import com.y3wegy.base.tools.JackSonHelper;
-import com.y3wegy.base.web.bean.web.ResponseJson;
-import com.y3wegy.base.web.tools.RestCallExecutor;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.y3wegy.base.exception.ServiceException;
+import com.y3wegy.base.tools.JackSonHelper;
+import com.y3wegy.base.web.bean.web.ResponseJson;
+import com.y3wegy.base.web.tools.RestCallExecutor;
 
 /**
  * /**
@@ -41,9 +42,8 @@ public class GlobalController {
     @Autowired
     private LoadBalancerClient loadBalancerClient;
 
-
     @RequestMapping("version")
-    public String version() throws ServiceExeption {
+    public String version() throws ServiceException {
         ResponseJson responseJson = RestCallExecutor.get(restTemplate, serviceURL + "/version");
         String jsonStr = JackSonHelper.obj2JsonStr(responseJson);
         logger.info(jsonStr);

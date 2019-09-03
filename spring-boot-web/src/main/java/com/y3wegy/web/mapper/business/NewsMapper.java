@@ -1,10 +1,10 @@
 package com.y3wegy.web.mapper.business;
 
-import com.y3wegy.base.web.bean.business.News;
-import org.apache.ibatis.annotations.Mapper;
-
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
+import com.y3wegy.base.web.bean.business.News;
 
 /**
  * @author y3wegy

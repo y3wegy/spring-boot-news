@@ -1,7 +1,8 @@
 package com.y3wegy.web.mapper.business;
 
-import com.y3wegy.web.bean.business.FileDto;
 import org.apache.ibatis.annotations.Mapper;
+
+import com.y3wegy.web.bean.business.FileDto;
 
 /**
  * @author y3wegy

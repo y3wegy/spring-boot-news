@@ -1,14 +1,16 @@
 package com.y3wegy.base.web.bean.web;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.*;
-import com.y3wegy.base.tools.JackSonHelper;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.CollectionUtils;
 
-import javax.persistence.Entity;
-import java.util.ArrayList;
-import java.util.List;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.*;
+import com.y3wegy.base.tools.JackSonHelper;
 
 /**
  * @author y3wegy

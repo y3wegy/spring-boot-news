@@ -6,17 +6,17 @@ import MainPage from './container/MainPage.jsx';
 import './css/App.css';
 
 const render = Component => {
-  ReactDOM.render(
-      <AppContainer>
-        <Component/>
-      </AppContainer>,
-      document.getElementById('Root'),
-  );
+    ReactDOM.render(
+        <AppContainer>
+            <Component/>
+        </AppContainer>,
+        document.getElementById('Root'),
+    );
 };
 
 render(MainPage);
 if (module.hot) {
-  module.hot.accept('./container/MainPage', () => {
-    render(MainPage);
-  });
+    module.hot.accept('./container/MainPage', () => {
+        render(MainPage);
+    });
 }

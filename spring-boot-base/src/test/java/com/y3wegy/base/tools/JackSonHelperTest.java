@@ -1,5 +1,11 @@
 package com.y3wegy.base.tools;
 
+import java.util.*;
+
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -7,12 +13,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.core.util.DefaultIndenter;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.y3wegy.base.ServiceExeption;
-import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.*;
+import com.y3wegy.base.exception.ServiceException;
 
 class JackSonHelperTest {
 
@@ -102,7 +103,7 @@ class JackSonHelperTest {
     }
 
     @Test
-    void testParse() throws ServiceExeption {
+    void testParse() throws ServiceException {
         User user = new User();
         user.setId("1");
         user.setPassword("2");
@@ -114,8 +115,7 @@ class JackSonHelperTest {
         userList.add(user);
 
         String jsonStr = JackSonHelper.obj2JsonStr(userList);
-        List<User> n = JackSonHelper.jsonStr2Obj(jsonStr, new TypeReference<List<User>>() {
-        });
+        List<User> n = JackSonHelper.jsonStr2Obj(jsonStr, new TypeReference<List<User>>() {});
         logger.info(String.valueOf(n.size()));
     }
 

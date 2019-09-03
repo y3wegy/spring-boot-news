@@ -1,17 +1,18 @@
 package com.y3wegy.web.controller.api.user;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.y3wegy.base.ServiceExeption;
-import com.y3wegy.base.tools.JackSonHelper;
-import com.y3wegy.base.web.bean.user.SecurityUser;
-import com.y3wegy.base.web.bean.web.ResponseJson;
-import com.y3wegy.web.service.web.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.y3wegy.base.exception.ServiceException;
+import com.y3wegy.base.tools.JackSonHelper;
+import com.y3wegy.base.web.bean.user.SecurityUser;
+import com.y3wegy.base.web.bean.web.ResponseJson;
+import com.y3wegy.web.service.web.UserService;
 
 /**
  * @author y3wegy
@@ -33,7 +34,7 @@ public class UserController {
     }
 
     @RequestMapping("/logout")
-    public String logout() throws ServiceExeption {
+    public String logout() throws ServiceException {
         userService.logOut();
         return JackSonHelper.obj2JsonStr(new ResponseJson());
     }

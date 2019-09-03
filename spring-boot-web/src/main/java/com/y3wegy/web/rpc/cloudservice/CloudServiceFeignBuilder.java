@@ -1,22 +1,24 @@
 package com.y3wegy.web.rpc.cloudservice;
 
-import com.y3wegy.base.tools.JackSonHelper;
-import com.y3wegy.web.rpc.cloudservice.fallback.UserFeignClientFallBack;
-import com.y3wegy.web.rpc.cloudservice.fallback.WebFeignClientFallBack;
-import com.y3wegy.web.rpc.cloudservice.feignclient.UserFeignClient;
-import com.y3wegy.web.rpc.cloudservice.feignclient.WebFeignClient;
-import feign.Client;
-import feign.Logger;
-import feign.hystrix.HystrixFeign;
-import feign.jackson.JacksonDecoder;
-import feign.jackson.JacksonEncoder;
-import feign.slf4j.Slf4jLogger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.openfeign.FeignClientProperties;
 import org.springframework.cloud.openfeign.support.SpringMvcContract;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+
+import com.y3wegy.base.tools.JackSonHelper;
+import com.y3wegy.web.rpc.cloudservice.fallback.UserFeignClientFallBack;
+import com.y3wegy.web.rpc.cloudservice.fallback.WebFeignClientFallBack;
+import com.y3wegy.web.rpc.cloudservice.feignclient.UserFeignClient;
+import com.y3wegy.web.rpc.cloudservice.feignclient.WebFeignClient;
+
+import feign.Client;
+import feign.Logger;
+import feign.hystrix.HystrixFeign;
+import feign.jackson.JacksonDecoder;
+import feign.jackson.JacksonEncoder;
+import feign.slf4j.Slf4jLogger;
 
 /**
  * @author y3wegy

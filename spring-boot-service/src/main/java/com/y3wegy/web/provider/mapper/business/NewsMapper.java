@@ -1,10 +1,11 @@
 package com.y3wegy.web.provider.mapper.business;
 
-import com.y3wegy.base.web.bean.business.News;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import com.y3wegy.base.web.bean.business.News;
 
 /**
  * @author y3wegy

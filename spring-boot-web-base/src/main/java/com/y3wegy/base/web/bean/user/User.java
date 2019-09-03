@@ -1,9 +1,9 @@
 package com.y3wegy.base.web.bean.user;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-
 import java.io.Serializable;
 import java.util.List;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * @author y3wegy

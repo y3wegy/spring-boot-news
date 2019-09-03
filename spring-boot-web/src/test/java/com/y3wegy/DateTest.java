@@ -1,13 +1,13 @@
 package com.y3wegy;
 
-import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.text.DateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
+
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DateTest {
     private static final Logger logger = LoggerFactory.getLogger(DateTest.class);
@@ -28,8 +28,8 @@ public class DateTest {
     }
 
     @Test
-    public void test1(){
-        logger.info(String.valueOf(18&16));
+    public void test1() {
+        logger.info(String.valueOf(18 & 16));
     }
 
     @Test

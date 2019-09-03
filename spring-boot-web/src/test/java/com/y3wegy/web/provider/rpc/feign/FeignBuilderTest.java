@@ -1,12 +1,14 @@
 package com.y3wegy.web.provider.rpc.feign;
 
+import org.junit.jupiter.api.Test;
+
 import com.y3wegy.base.tools.JackSonHelper;
 import com.y3wegy.base.web.bean.web.ResponseJson;
+
 import feign.RequestLine;
 import feign.hystrix.HystrixFeign;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
-import org.junit.jupiter.api.Test;
 
 public class FeignBuilderTest {
 

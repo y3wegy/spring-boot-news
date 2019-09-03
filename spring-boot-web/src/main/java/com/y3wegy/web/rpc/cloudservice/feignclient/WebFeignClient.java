@@ -1,7 +1,8 @@
 package com.y3wegy.web.rpc.cloudservice.feignclient;
 
-import com.y3wegy.base.web.bean.web.ResponseJson;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.y3wegy.base.web.bean.web.ResponseJson;
 
 /**
  * @author y3wegy

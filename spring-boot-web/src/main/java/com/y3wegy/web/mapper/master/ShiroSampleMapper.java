@@ -1,9 +1,9 @@
 package com.y3wegy.web.mapper.master;
 
-import org.springframework.stereotype.Repository;
-
 import java.util.HashSet;
 import java.util.Set;
+
+import org.springframework.stereotype.Repository;
 
 /**
  * @author y3wegy
@@ -13,12 +13,12 @@ public class ShiroSampleMapper {
     public Set<String> getRolesByUsername(String username) {
         Set<String> roles = new HashSet<>();
         switch (username) {
-            case "zhangsan":
-                roles.add("admin");
-                break;
-            case "lisi":
-                roles.add("guest");
-                break;
+        case "zhangsan":
+            roles.add("admin");
+            break;
+        case "lisi":
+            roles.add("guest");
+            break;
         }
         return roles;
     }
@@ -26,23 +26,23 @@ public class ShiroSampleMapper {
     public Set<String> getPermissionsByRole(String role) {
         Set<String> permissions = new HashSet<>();
         switch (role) {
-            case "admin":
-                permissions.add("read");
-                permissions.add("write");
-                break;
-            case "guest":
-                permissions.add("read");
-                break;
+        case "admin":
+            permissions.add("read");
+            permissions.add("write");
+            break;
+        case "guest":
+            permissions.add("read");
+            break;
         }
         return permissions;
     }
 
     public String getPasswordByUsername(String username) {
         switch (username) {
-            case "zhangsan":
-                return "zhangsan";
-            case "lisi":
-                return "lisi";
+        case "zhangsan":
+            return "zhangsan";
+        case "lisi":
+            return "lisi";
         }
         return null;
     }

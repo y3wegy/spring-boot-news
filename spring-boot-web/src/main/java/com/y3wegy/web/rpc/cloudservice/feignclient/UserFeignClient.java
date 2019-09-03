@@ -1,11 +1,12 @@
 package com.y3wegy.web.rpc.cloudservice.feignclient;
 
-import com.y3wegy.base.web.bean.user.SecurityUser;
-import com.y3wegy.base.web.bean.web.ResponseJson;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.y3wegy.base.web.bean.user.SecurityUser;
+import com.y3wegy.base.web.bean.web.ResponseJson;
 
 /**
  * @author y3wegy

@@ -1,12 +1,7 @@
 package com.y3wegy.web.provider.controller.api.web.user;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.y3wegy.base.ServiceExeption;
-import com.y3wegy.base.tools.JackSonHelper;
-import com.y3wegy.base.web.bean.user.SecurityUser;
-import com.y3wegy.base.web.bean.user.UserRole;
-import com.y3wegy.base.web.bean.web.ResponseJson;
-import com.y3wegy.web.provider.service.web.UserService;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +11,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.y3wegy.base.exception.ServiceException;
+import com.y3wegy.base.tools.JackSonHelper;
+import com.y3wegy.base.web.bean.user.SecurityUser;
+import com.y3wegy.base.web.bean.user.UserRole;
+import com.y3wegy.base.web.bean.web.ResponseJson;
+import com.y3wegy.web.provider.service.web.UserService;
 
 /**
  * @author y3wegy
@@ -36,7 +37,7 @@ public class UserController {
     UserService userService;
 
     @RequestMapping(path = "/query", consumes = MediaType.APPLICATION_JSON_VALUE, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseJson query(@RequestBody SecurityUser userInfo) throws JsonProcessingException, ServiceExeption {
+    public ResponseJson query(@RequestBody SecurityUser userInfo) throws JsonProcessingException, ServiceException {
         logger.info("enter query");
         /*String lastUser = (String) redisTemplate.opsForValue().get("UserName");
         logger.info(lastUser);
@@ -48,7 +49,7 @@ public class UserController {
     }
 
     @RequestMapping(path = "/queryRole", consumes = MediaType.APPLICATION_JSON_VALUE, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public String queryRole(@RequestBody SecurityUser userInfo) throws JsonProcessingException, ServiceExeption {
+    public String queryRole(@RequestBody SecurityUser userInfo) throws JsonProcessingException, ServiceException {
         logger.info("enter queryRole");
         List<UserRole> userRoleList = userService.queryUserRolesByUserName(userInfo);
         ResponseJson responseJson = new ResponseJson().success(JackSonHelper.obj2JsonStr(userRoleList));

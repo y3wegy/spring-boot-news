@@ -1,10 +1,10 @@
 package com.y3wegy.web.provider.service.web;
 
+import java.util.List;
+
 import com.y3wegy.base.web.bean.user.SecurityUser;
 import com.y3wegy.base.web.bean.user.User;
 import com.y3wegy.base.web.bean.user.UserRole;
-
-import java.util.List;
 
 /**
  * @author y3wegy

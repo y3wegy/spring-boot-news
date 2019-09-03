@@ -1,9 +1,10 @@
 package com.y3wegy.web.provider.mapper.master.web;
 
-import com.y3wegy.base.web.bean.web.MenuDto;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
+import com.y3wegy.base.web.bean.web.MenuDto;
 
 /**
  * @author y3wegy

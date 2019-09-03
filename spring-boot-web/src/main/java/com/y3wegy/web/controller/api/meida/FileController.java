@@ -1,11 +1,7 @@
 package com.y3wegy.web.controller.api.meida;
 
-import com.y3wegy.base.ServiceExeption;
-import com.y3wegy.base.tools.JackSonHelper;
-import com.y3wegy.base.web.bean.user.SecurityUser;
-import com.y3wegy.base.web.bean.web.ResponseJson;
-import com.y3wegy.web.bean.business.FileDto;
-import com.y3wegy.web.mapper.business.FileMapper;
+import java.io.IOException;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
@@ -18,7 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
+import com.y3wegy.base.exception.ServiceException;
+import com.y3wegy.base.tools.JackSonHelper;
+import com.y3wegy.base.web.bean.user.SecurityUser;
+import com.y3wegy.base.web.bean.web.ResponseJson;
+import com.y3wegy.web.bean.business.FileDto;
+import com.y3wegy.web.mapper.business.FileMapper;
 
 /**
  * @author y3wegy
@@ -34,7 +35,7 @@ public class FileController {
 
     @RequiresRoles("USER")
     @PostMapping(value = "/upload")
-    public String upload(@RequestParam("file") MultipartFile file) throws ServiceExeption {
+    public String upload(@RequestParam("file") MultipartFile file) throws ServiceException {
         ResponseJson responseJson = new ResponseJson().code(UPLOAD_FILE);
         try {
             Subject currentSubject = SecurityUtils.getSubject();
@@ -55,10 +56,10 @@ public class FileController {
     }
 
     /*@PostMapping(value = "/upload/batch")
-    public String batchUpload(HttpServletRequest request) throws ServiceExeption {
+    public String batchUpload(HttpServletRequest request) throws ServiceException {
         Subject currentSubject = SecurityUtils.getSubject();
         SecurityUser securityUser = (SecurityUser) currentSubject.getPrincipal();
-
+    
         List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
         ResponseJson responseJson = new ResponseJson(UPLOAD_FILE);
         for (int i = 0; i < files.size(); ++i) {

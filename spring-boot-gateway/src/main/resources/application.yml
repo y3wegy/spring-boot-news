@@ -26,6 +26,9 @@ zuul:
     api-1:
       path: /CloudService/**
       serviceId: CloudService
+    api-2:
+      path: /CloudPush/**
+      serviceId: CloudPush
 eureka:
   instance:
     hostname: localhost
