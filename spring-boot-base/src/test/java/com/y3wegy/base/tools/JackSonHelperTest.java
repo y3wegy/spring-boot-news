@@ -7,7 +7,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.core.util.DefaultIndenter;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.y3wegy.base.ServiceExeption;
+import com.y3wegy.base.exception.ServiceException;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -102,7 +102,7 @@ class JackSonHelperTest {
     }
 
     @Test
-    void testParse() throws ServiceExeption {
+    void testParse() throws ServiceException {
         User user = new User();
         user.setId("1");
         user.setPassword("2");

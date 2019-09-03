@@ -14,7 +14,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.y3wegy.base.DateConstants;
-import com.y3wegy.base.ServiceExeption;
+import com.y3wegy.base.exception.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -64,13 +64,13 @@ public class JackSonHelper {
      * @param obj
      * @param indentLength
      * @return
-     * @throws ServiceExeption
+     * @throws ServiceException
      * @author @date        @comment
      * Chen, Rui   1/30/2019     init version
      * -------------------------------------------------------------
      * create json str with indent
      */
-    public static String obj2JsonStr(Object obj, int indentLength) throws ServiceExeption {
+    public static String obj2JsonStr(Object obj, int indentLength) throws ServiceException {
         ObjectMapper objectMapper = getObjectMapper();
         DefaultPrettyPrinter.Indenter indenter =
                 new DefaultIndenter(String.format("%" + indentLength + "s", ""), DefaultIndenter.SYS_LF);
@@ -86,12 +86,12 @@ public class JackSonHelper {
      *
      * @param obj
      * @return
-     * @throws ServiceExeption
+     * @throws ServiceException
      * @author @date        @comment
      * Chen, Rui   1/30/2019     init version
      * -------------------------------------------------------------
      */
-    public static String obj2JsonStr(Object obj) throws ServiceExeption {
+    public static String obj2JsonStr(Object obj) throws ServiceException {
         return obj2JsonStr(getObjectMapper(), obj);
     }
 
@@ -101,28 +101,28 @@ public class JackSonHelper {
      * @param objectMapper
      * @param obj
      * @return
-     * @throws ServiceExeption
+     * @throws ServiceException
      * @author @date        @comment
      * Chen, Rui   1/30/2019     init version
      * -------------------------------------------------------------
      */
-    public static String obj2JsonStr(ObjectMapper objectMapper, Object obj) throws ServiceExeption {
+    public static String obj2JsonStr(ObjectMapper objectMapper, Object obj) throws ServiceException {
         try {
             ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
             return objectWriter.writeValueAsString(obj);
         } catch (JsonProcessingException e) {
             logger.error("parse failed", e);
-            throw new ServiceExeption("parse failed", e);
+            throw new ServiceException("parse failed", e);
         }
     }
 
-    public static <T> T jsonStr2Obj(String jsonStr, TypeReference<T> type) throws ServiceExeption {
+    public static <T> T jsonStr2Obj(String jsonStr, TypeReference<T> type) throws ServiceException {
         T readValue = null;
         try {
             readValue = getObjectMapper().readValue(jsonStr, type);
         } catch (IOException e) {
             logger.error("parse failed", e);
-            throw new ServiceExeption("parse failed", e);
+            throw new ServiceException("parse failed", e);
         }
         return readValue;
     }

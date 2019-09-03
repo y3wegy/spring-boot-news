@@ -1,6 +1,6 @@
 package com.y3wegy.web.provider.controller.api.business.news;
 
-import com.y3wegy.base.ServiceExeption;
+import com.y3wegy.base.exception.ServiceException;
 import com.y3wegy.base.tools.JackSonHelper;
 import com.y3wegy.base.web.bean.business.News;
 import com.y3wegy.base.web.bean.web.ResponseJson;
@@ -26,7 +26,7 @@ public class NewsController {
     private NewService newService;
 
     @RequestMapping("/list")
-    public String listNews() throws ServiceExeption {
+    public String listNews() throws ServiceException {
         List<News> newsList = newService.list();
         String newStr = JackSonHelper.obj2JsonStr(newsList);
         String responseStr = JackSonHelper.obj2JsonStr(new ResponseJson().success(newStr));

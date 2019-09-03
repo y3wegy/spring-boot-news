@@ -1,6 +1,6 @@
 # See http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 server:
-  port: 9301
+  port: 9601
   #address: localhost
   tomcat:
     access_log_enabled: true
@@ -14,21 +14,13 @@ spring:
   profiles:
     active: DEV
   application:
-    name: CloudGateWay
+    name: CloudPush
   mvc:
     view:
       suffix: .html
   output:
     ansi:
       enabled: detect
-zuul:
-  routes:
-    api-1:
-      path: /CloudService/**
-      serviceId: CloudService
-    api-2:
-      path: /CloudPush/**
-      serviceId: CloudPush
 eureka:
   instance:
     hostname: localhost

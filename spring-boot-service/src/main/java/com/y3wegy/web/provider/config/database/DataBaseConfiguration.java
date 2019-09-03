@@ -1,7 +1,7 @@
 package com.y3wegy.web.provider.config.database;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.y3wegy.base.ServiceExeption;
+import com.y3wegy.base.exception.ServiceException;
 import com.y3wegy.web.provider.config.prop.DruidProp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,7 +50,7 @@ public class DataBaseConfiguration {
     }
 
     @Bean(name = "masterDataSource")
-    public DataSource buildMasterDataSources(@Qualifier("masterDataSourceProp") DataSourceProperties dataSourceProperties) throws ServiceExeption {
+    public DataSource buildMasterDataSources(@Qualifier("masterDataSourceProp") DataSourceProperties dataSourceProperties) throws ServiceException {
         logger.debug("Configure master DataSource");
         DataSource dataSource = dataSourceProperties.initializeDataSourceBuilder().build();
         return getDruidDataSource(dataSource, dataSourceProperties);
@@ -58,13 +58,13 @@ public class DataBaseConfiguration {
 
     @Bean(name = "businessDataSource")
     @Primary
-    public DataSource buildBusinessDataSource(@Qualifier("businessDataSourceProp") DataSourceProperties dataSourceProperties) throws ServiceExeption {
+    public DataSource buildBusinessDataSource(@Qualifier("businessDataSourceProp") DataSourceProperties dataSourceProperties) throws ServiceException {
         logger.debug("Configure business DataSource");
         DataSource dataSource = dataSourceProperties.initializeDataSourceBuilder().build();
         return getDruidDataSource(dataSource, dataSourceProperties);
     }
 
-    private DruidDataSource getDruidDataSource(DataSource dataSource, DataSourceProperties dataSourceProperties) throws ServiceExeption {
+    private DruidDataSource getDruidDataSource(DataSource dataSource, DataSourceProperties dataSourceProperties) throws ServiceException {
         DruidDataSource druiDataSource = (DruidDataSource) dataSource;
         try {
             druiDataSource.setName(dataSourceProperties.getName());
@@ -84,7 +84,7 @@ public class DataBaseConfiguration {
             druiDataSource.setFilters(druidProp.getFilters());
             return druiDataSource;
         } catch (Exception e) {
-            throw new ServiceExeption("create DruidDataSource failed", e);
+            throw new ServiceException("create DruidDataSource failed", e);
         }
     }
 }

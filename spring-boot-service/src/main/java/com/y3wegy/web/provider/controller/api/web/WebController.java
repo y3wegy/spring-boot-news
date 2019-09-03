@@ -1,7 +1,7 @@
 package com.y3wegy.web.provider.controller.api.web;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.y3wegy.base.ServiceExeption;
+import com.y3wegy.base.exception.ServiceException;
 import com.y3wegy.base.tools.JackSonHelper;
 import com.y3wegy.base.web.bean.web.MenuDto;
 import com.y3wegy.base.web.bean.web.ResponseJson;
@@ -26,7 +26,7 @@ public class WebController {
     private MenuService menuService;
 
     @RequestMapping("/menu")
-    public String getMenuData() throws ServiceExeption {
+    public String getMenuData() throws ServiceException {
         List<MenuDto> rootList = menuService.getMenuData();
         ArrayNode menuArr = JackSonHelper.getObjectMapper().createArrayNode();
         rootList.forEach(node -> menuArr.add(node.toJson()));
