@@ -1,4 +1,5 @@
 https://www.jianshu.com/p/9103c9c7e128
+https://www.npmjs.com/package/react-stomp
 服务端处理消息的场景：
 
 + 公告就是只要订阅了此路径的的用户都能收到，我们使用@SendTo 注解实现，如果不使用注解指定，会默认交给broker进行处理，例如@MessageMapping("/demo1/twoWays") 这种，就会拼接代理域+路径
