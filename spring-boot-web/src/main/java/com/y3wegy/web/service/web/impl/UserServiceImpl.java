@@ -30,17 +30,18 @@ public class UserServiceImpl implements UserService {
         /*String lastUser = (String) redisTemplate.opsForValue().get("UserName");
         logger.info(lastUser);
         redisTemplate.opsForValue().set("UserName",name);*/
-        try {
-            currentUser.logout();
-            currentUser.login(new UsernamePasswordToken(securityUser.getUserName(), securityUser.getPassword()));
-        } catch (AuthenticationException e) {
-            logger.error("Login Failed", e);
-        }
+
         ResponseJson responseJson = new ResponseJson();
         if (currentUser.isAuthenticated()) {
             SecurityUser user = (SecurityUser) currentUser.getPrincipal();
             responseJson.data(user);
         } else {
+            try {
+                currentUser.logout();
+                currentUser.login(new UsernamePasswordToken(securityUser.getUserName(), securityUser.getPassword()));
+            } catch (AuthenticationException e) {
+                logger.error("Login Failed", e);
+            }
             responseJson.fail(securityUser);
         }
         return responseJson;

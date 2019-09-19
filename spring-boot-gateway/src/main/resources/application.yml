@@ -21,14 +21,34 @@ spring:
   output:
     ansi:
       enabled: detect
-zuul:
-  routes:
-    api-1:
-      path: /CloudService/**
-      serviceId: CloudService
-    api-2:
-      path: /CloudPush/**
-      serviceId: CloudPush
+  cloud:
+    gateway:
+      default-filters:
+      - name: CustomRateLimiter
+      routes:
+      - id: CloudService
+        uri: lb://CloudService
+        order: 1
+        predicates:
+        - Path= /CloudService/**
+        filters:
+        - StripPrefix: 1
+          name: Hystrix
+          args:
+            name: fallbackcmd
+            fallbackUri: forward:/fallback
+      - id: CloudPush
+        uri: lb://CloudPush
+        order: 2
+        predicates:
+        - Path= /CloudPush/**
+        filters:
+        - StripPrefix: 1
+          name: Hystrix
+          args:
+            name: fallbackcmd
+            fallbackUri: forward:/fallback
+
 eureka:
   instance:
     hostname: localhost
