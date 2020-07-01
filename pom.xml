@@ -32,7 +32,7 @@
         <spring-cloud-services.version>2.1.4.RELEASE</spring-cloud-services.version>
 
         <alibaba.druid>1.1.12</alibaba.druid>
-        <mysql-connector.version>8.0.13</mysql-connector.version>
+        <mysql-connector.version>8.0.16</mysql-connector.version>
         <oracle-driver.version>12.2.0.1</oracle-driver.version>
         <shiro.version>1.4.0</shiro.version>
         <junit.jupiter.version>5.5.1</junit.jupiter.version>
